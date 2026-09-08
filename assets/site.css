@@ -282,6 +282,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 .job .role-meta { color: var(--ink-soft); font-size: 0.92rem; margin: 0.15rem 0 0.5rem; }
 .job p { color: var(--ink-soft); font-size: 0.96rem; max-width: 62ch; }
 
+/* ---------------- section lede ---------------- */
+.section-lede { color: var(--ink-soft); font-size: 1.02rem; max-width: 64ch; margin: -0.5rem 0 clamp(1.6rem, 4vw, 2.4rem); }
+
+/* ---------------- concepts & prototyping ---------------- */
+.concepts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+
+/* ---------------- narrative & impact ---------------- */
+.narrative { padding-top: clamp(3rem, 7vw, 4.5rem); padding-bottom: clamp(1rem, 3vw, 2rem); }
+.narrative .section-lede { font-size: 1.08rem; max-width: 68ch; }
+.narrative .section-lede + .section-lede { margin-top: 0.9rem; }
+
 /* ---------------- earlier games ---------------- */
 .earlier { padding-top: clamp(3rem, 7vw, 4.5rem); padding-bottom: clamp(3rem, 7vw, 4.5rem); }
 .thumbs { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.1rem; }
@@ -355,6 +366,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
   .job { grid-template-columns: 1fr; gap: 0.15rem; }
   .job .when { padding-top: 0; }
   .feature-grid { grid-template-columns: 1fr; }
+  .concepts-grid { grid-template-columns: 1fr; }
   .clip-grid { grid-template-columns: 1fr; }
   .gallery { grid-template-columns: repeat(2, 1fr); }
 }

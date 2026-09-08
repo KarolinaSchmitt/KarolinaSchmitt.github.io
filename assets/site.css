@@ -233,6 +233,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 .card {
   display: grid;
   grid-template-columns: 42% 1fr;
+  align-items: center;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -249,8 +250,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 }
 .card:nth-child(even) { grid-template-columns: 1fr 42%; }
 .card:nth-child(even) .card-media { order: 2; }
-.card-media { position: relative; min-height: 220px; background: var(--surface-2); overflow: hidden; }
-.card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.card-media { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2); overflow: hidden; }
+.card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .3s ease; }
 .card:hover .card-media img { transform: scale(1.035); }
 .card-body { padding: clamp(1.4rem, 3vw, 2rem); display: flex; flex-direction: column; }
 .card-body h3 { font-size: clamp(1.3rem, 2.6vw, 1.6rem); display: flex; align-items: center; gap: 0.5rem; }
@@ -334,6 +335,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 .feature-card .k { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary-ink); }
 .feature-card h3 { font-size: 1.05rem; margin: 0.4rem 0 0.5rem; font-weight: 700; letter-spacing: -0.005em; }
 .feature-card p { font-size: 0.92rem; color: var(--ink-soft); }
+
+/* feature card with a screenshot */
+.feature-card:has(.fc-img) { padding: 0; overflow: hidden; }
+.fc-img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+.fc-body { padding: 1.15rem 1.35rem 1.35rem; }
 
 .clip-grid { margin-top: 1.6rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; align-items: start; }
 .clip { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }

@@ -10,9 +10,14 @@
       if (el) items.push({ a: a, el: el, on: false });
     });
     if (!items.length) return;
+    function atBottom() {
+      var d = document.documentElement;
+      return window.innerHeight + window.pageYOffset >= d.scrollHeight - 2;
+    }
     function paint() {
       var current = null;
       items.forEach(function (it) { if (it.on) current = it; });
+      if (atBottom()) current = items[items.length - 1];
       items.forEach(function (it) {
         if (it === current) it.a.setAttribute('aria-current', 'true');
         else it.a.removeAttribute('aria-current');
@@ -25,35 +30,26 @@
       paint();
     }, { rootMargin: '-35% 0px -55% 0px' });
     items.forEach(function (it) { io.observe(it.el); });
-    window.addEventListener('scroll', function () {
-      try {
-        var d = document.documentElement;
-        if (window.innerHeight + window.pageYOffset >= d.scrollHeight - 2) {
-          var last = items[items.length - 1];
-          items.forEach(function (it) {
-            if (it === last) it.a.setAttribute('aria-current', 'true');
-            else it.a.removeAttribute('aria-current');
-          });
-        }
-      } catch (e) {}
-    }, { passive: true });
+    window.addEventListener('scroll', paint, { passive: true });
   }
 
   function initTheme() {
     var root = document.documentElement;
     var btn = document.getElementById('theme-toggle');
-    try {
-      var saved = localStorage.getItem('theme');
-      if (saved === 'light' || saved === 'dark') root.dataset.theme = saved;
-    } catch (e) {}
+    // The saved choice is applied by the inline script in <head> (no flash).
     if (!btn) return;
-    btn.addEventListener('click', function () {
-      var dark = root.dataset.theme
+    function isDark() {
+      return root.dataset.theme
         ? root.dataset.theme === 'dark'
-        : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var next = dark ? 'light' : 'dark';
+        : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    }
+    function sync() { btn.setAttribute('aria-pressed', isDark() ? 'true' : 'false'); }
+    sync();
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
       root.dataset.theme = next;
       try { localStorage.setItem('theme', next); } catch (e) {}
+      sync();
     });
   }
 

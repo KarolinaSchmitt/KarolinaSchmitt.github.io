@@ -249,27 +249,42 @@ foreach ($f in $files) {
         }
     }
 
-    # 5. game pages: template ids in order, one h1, provisional text blocks
+    # 5. game pages (games/, pt/games/): template ids in order, one h1. HTML comments are ignored.
+    $clean = [regex]::Replace($html, '(?s)<!--.*?-->', '')
     if ($rel -like 'games/*' -or $rel -like 'pt/games/*') {
         $pos = @()
         foreach ($id in @('overview', 'role', 'challenges', 'results')) {
-            $mm = [regex]::Match($html, "(?<![\w-])id\s*=\s*[`"']$id[`"']")
+            $mm = [regex]::Match($clean, "(?<![\w-])id\s*=\s*[`"']$id[`"']")
             if (-not $mm.Success) { Add-Fail $rel "missing section id=`"$id`""; $pos += -1 } else { $pos += $mm.Index }
         }
         if (-not ($pos -contains -1) -and -not (($pos[0] -lt $pos[1]) -and ($pos[1] -lt $pos[2]) -and ($pos[2] -lt $pos[3]))) {
             Add-Fail $rel 'section ids must be in order: overview, role, challenges, results'
         }
-        $h1 = [regex]::Matches($html, '<h1[\s>]', 'IgnoreCase').Count
+        $h1 = [regex]::Matches($clean, '<h1[\s>]', 'IgnoreCase').Count
         if ($h1 -ne 1) { Add-Fail $rel "expected exactly one <h1>, found $h1" }
-        $ph = [regex]::Matches($html, '(?<![\w-])data-placeholder(?![\w-])').Count
-        if ($ph -gt 0) {
-            [void]$script:notes.Add("NOTE: ${rel}: $ph provisional text block(s)")
-            $script:phTotal += $ph
-            $script:phPages++
-            if ($Publish) { Add-Fail $rel "provisional text ($ph)" }
-        }
     }
-}
+
+    # 6. provisional text, three independent signals on every page (comments ignored)
+    $cData = [regex]::Matches($clean, '(?<![\w-])data-placeholder(?![\w-])').Count
+    $cClass = 0
+    $cBadgeEl = 0
+    foreach ($m in [regex]::Matches($clean, '(?<![\w-])class\s*=\s*(?:"([^"]*)"|''([^'']*)'')', 'IgnoreCase')) {
+        $toks = ($m.Groups[1].Value + ' ' + $m.Groups[2].Value) -split '\s+'
+        if ($toks -contains 'placeholder') { $cClass++ }
+        if ($toks -contains 'ph-badge') { $cBadgeEl++ }
+    }
+    $cBadgeTxt = [regex]::Matches($clean, 'Provisional text|Texto provis.rio').Count
+    $cBadge = [Math]::Max($cBadgeEl, $cBadgeTxt)
+    $ph = [Math]::Max($cData, [Math]::Max($cClass, $cBadge))
+    if ($cData -ne $cClass -or $cData -ne $cBadge) {
+        Add-Fail $rel "inconsistent provisional markers (data-placeholder=$cData, class=$cClass, badge=$cBadge)"
+    }
+    if ($ph -gt 0) {
+        [void]$script:notes.Add("NOTE: ${rel}: $ph provisional text block(s)")
+        $script:phTotal += $ph
+        $script:phPages++
+        if ($Publish) { Add-Fail $rel "provisional text ($ph)" }
+    }}
 
 foreach ($line in $script:failures) { Write-Output $line }
 foreach ($line in $script:notes) { Write-Output $line }

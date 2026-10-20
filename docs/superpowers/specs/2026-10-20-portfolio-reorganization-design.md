@@ -69,12 +69,22 @@ A floating pill menu (fixed at top, icons plus labels) with the language switch 
 
 **Contact block** appears on the home, About and every case study, identical, with buttons instead of a printed e-mail address.
 
-## 5. Project pages
+## 5. Project pages (Revision 3, 2026-10-20)
 
-- Same layout as today, plus the same fixed menu as the home.
-- Pet Shop Fever keeps its rich page (screenshots, videos, features).
-- The three shorter case studies are only reorganized, not expanded.
-- "Next project" footer stays.
+Every one of the **9 games** gets a case-study page (4 Tapps pages exist; 5 Playmove pages are new), in EN and PT, all with the same template. Playmove cards on the home become links.
+
+Template, in order:
+1. **Company + game name:** eyebrow with the company ("Tapps Games · Live since 2022", "Tapps Games · Live", "Playmove · 2015-2019") and the game name as h1.
+2. **Platform · style:** one line, e.g. "Mobile · Time management" (Playmove: "PC & Mobile · …").
+3. **My functions:** the role chips (existing `.detail-tags`).
+4. **Media:** the cover image (Pet Shop Fever also keeps its "In action" clips and gallery directly below). Images narrower than 800px are shown at natural size, not stretched (all covers and thumbnails are only 440px wide; better images or gameplay videos should replace them later).
+5. **Overview** (id `overview`), 6. **My role** (id `role`), 7. **Design challenges** (id `challenges`), 8. **Results** (id `results`), each an h2.
+
+Content mapping (no invented content): Overview = first existing paragraph; My role = second existing paragraph (Pet Shop Fever: plus Narrative, Features I designed and Economy & progression as h3 subsections); the short sentence under the title (`.sub`) stays for the Tapps pages. The Playmove pages use their one existing sentence as Overview text and the existing role chips.
+
+**Provisional text (Karolina's choice):** Design challenges and Results on all 9 pages, plus My role/extra Overview on the Playmove pages, hold clearly marked provisional blocks (`<div class="placeholder" data-placeholder>` with a visible "Provisional text" / "Texto provisório" badge and a dashed border). They contain instructions, never facts. `tools/check-site.ps1` counts them and prints a warning; `-Publish` makes the checker fail while any remain, so nothing is published unfilled by accident.
+
+"Next project" chain: Pet Shop Fever → Evolution Galaxy → Vlogger Go Viral → My Boo → Liga do Tempo → Color Shooter → Lab Boom → Divertron → Guardiões do Mundo → Pet Shop Fever. The contact block stays at the bottom.
 
 ## 6. Behavior (assets/site.js)
 

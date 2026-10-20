@@ -55,7 +55,7 @@ A floating pill menu (fixed at top, icons plus labels) with the language switch 
 | Experience | Experience + Earlier games | Timeline; Playmove earlier games collapsed behind "See more +" |
 | Contact | Let's talk | Email, LinkedIn, location |
 
-**Project card format (all four):** cover, genre and platform chip, title, one-sentence description, role chips. The long paragraph moves to the case study (where it already lives). Grid: 2 columns desktop, 1 on mobile.
+**Project card format (all four):** cover, genre and platform chip, title, one-sentence description, role chips. The long paragraph moves to the case study (where it already lives). Grid: 3 compact cards in one row on desktop (avoids an orphan card), 1 column on mobile.
 
 ## 5. Project pages
 

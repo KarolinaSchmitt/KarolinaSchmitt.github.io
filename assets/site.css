@@ -224,7 +224,6 @@ a.card:hover, a.card:focus-visible {
 }
 .card-media { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2); overflow: hidden; }
 .card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.card-static { cursor: default; }
 .card-body { padding: clamp(1.4rem, 3vw, 2rem); display: flex; flex-direction: column; }
 .card-body h3 { font-size: clamp(1.3rem, 2.6vw, 1.6rem); margin-bottom: 0.6rem; }
 .card-body .chip {

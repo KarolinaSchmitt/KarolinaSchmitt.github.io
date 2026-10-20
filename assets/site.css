@@ -137,10 +137,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 }
 .cta-row { margin-top: 1.9rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-/* ---------------- hero intro text (below the buttons) ---------------- */
-.hero .intro { margin-top: clamp(1.6rem, 3vw, 2.2rem); max-width: 62ch; }
-.hero .intro p { color: var(--ink-soft); font-size: 1.02rem; }
+/* ---------------- hero intro text (full width, below the title row) ---------------- */
+.hero .intro { grid-column: 1 / -1; margin-top: clamp(0.5rem, 2vw, 1.5rem); max-width: 72ch; }
+.hero .intro p { color: var(--ink-soft); font-size: 1.08rem; }
 .hero .intro p + p { margin-top: 0.9rem; }
+@media (min-width: 881px) { .hero .intro { margin-top: -1rem; } } /* offsets part of the grid row-gap so the text sits close to the buttons */
 
 .btn {
   display: inline-flex; align-items: center; gap: 0.5rem;

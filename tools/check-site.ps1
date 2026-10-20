@@ -1,9 +1,8 @@
-# Site checker: lang, absolute hreflang (self, counterpart, x-default), canonical, local links/fragments/assets, lang switch, and the five home section ids (home work about experience contact).
+# Site checker: lang, absolute hreflang (self, counterpart, x-default), canonical, local links/fragments/assets, lang switch, and required section ids per page (home pages: home work contact; about pages: contact).
 # Usage (from repo root): powershell -ExecutionPolicy Bypass -File tools/check-site.ps1
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $skip = @('.git', '.superpowers', 'docs', 'tools')
-$sectionIds = @('home', 'work', 'about', 'experience', 'contact')
 $siteUrl = 'https://karolinaschmitt.github.io/'
 $script:failures = New-Object System.Collections.ArrayList
 
@@ -235,12 +234,13 @@ foreach ($f in $files) {
         if (-not [regex]::IsMatch($html, "(?<![\w-])id\s*=\s*[`"']$([regex]::Escape($frag))[`"']")) { Add-Fail $rel "missing fragment #$frag" }
     }
 
-    # 4. section ids on the two home pages
-    if ($rel -eq 'index.html' -or $rel -eq 'pt/index.html') {
-        foreach ($id in $sectionIds) {
-            if ($html -cnotmatch "(?<![\w-])id\s*=\s*[`"']$id[`"']") {
-                Add-Fail $rel "missing section id=`"$id`""
-            }
+    # 4. required section ids per page
+    $requiredIds = @()
+    if ($rel -eq 'index.html' -or $rel -eq 'pt/index.html') { $requiredIds = @('home', 'work', 'contact') }
+    elseif ($rel -eq 'about.html' -or $rel -eq 'pt/about.html') { $requiredIds = @('contact') }
+    foreach ($id in $requiredIds) {
+        if ($html -cnotmatch "(?<![\w-])id\s*=\s*[`"']$id[`"']") {
+            Add-Fail $rel "missing section id=`"$id`""
         }
     }
 }

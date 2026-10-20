@@ -1,6 +1,8 @@
 /* Karolina Schmitt — menu highlight and theme toggle (progressive enhancement) */
 (function () {
   function initMenu() {
+    // Scroll highlighting only applies on the home page; other pages mark their own current item in the HTML.
+    if (!document.getElementById('home')) return;
     if (!('IntersectionObserver' in window)) return;
     var links = Array.prototype.slice.call(document.querySelectorAll('.menu a[href*="#"]'));
     var items = [];

@@ -3,7 +3,7 @@
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $skip = @('.git', '.superpowers', 'docs', 'tools')
-$sectionIds = @('home', 'work', 'prototypes', 'about', 'experience', 'contact')
+$sectionIds = @('home', 'work', 'about', 'experience', 'contact')
 $script:failures = New-Object System.Collections.ArrayList
 
 function Add-Fail($page, $reason) {

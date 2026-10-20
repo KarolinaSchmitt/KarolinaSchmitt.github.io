@@ -25,6 +25,18 @@
       paint();
     }, { rootMargin: '-35% 0px -55% 0px' });
     items.forEach(function (it) { io.observe(it.el); });
+    window.addEventListener('scroll', function () {
+      try {
+        var d = document.documentElement;
+        if (window.innerHeight + window.pageYOffset >= d.scrollHeight - 2) {
+          var last = items[items.length - 1];
+          items.forEach(function (it) {
+            if (it === last) it.a.setAttribute('aria-current', 'true');
+            else it.a.removeAttribute('aria-current');
+          });
+        }
+      } catch (e) {}
+    }, { passive: true });
   }
 
   function initTheme() {

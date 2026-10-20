@@ -302,8 +302,28 @@ a.card:hover, a.card:focus-visible {
 .cover-banner .inner-narrow { max-width: 1060px; }
 .cover-banner img { width: 100%; aspect-ratio: 21/9; object-fit: cover; }
 
+/* media narrower than the text column (440px covers/thumbnails): natural size, same frame as the banner */
+.cover-banner.game-media { overflow: visible; border: 0; box-shadow: none; border-radius: 0; margin: 0 0 clamp(2.5rem, 6vw, 4rem); padding: 0 clamp(1.15rem, 5vw, 2.5rem); }
+.cover-banner.game-media .inner-narrow { max-width: 760px; }
+.cover-banner.game-media img {
+  width: auto;
+  max-width: 100%;
+  aspect-ratio: auto;
+  height: auto;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--surface-2);
+}
+
 .detail-section { padding-top: clamp(2.2rem, 5vw, 3.2rem); }
-.detail-section h2 { font-size: clamp(1.4rem, 3vw, 1.85rem); }
+.detail-section h2, .detail-section h3.sub-head { font-size: clamp(1.4rem, 3vw, 1.85rem); }
+.detail-section h3.sub-head { margin-top: clamp(2.2rem, 5vw, 3.2rem); }
+
+/* provisional text: instructions that still need real content; must stay visibly marked */
+.placeholder { margin-top: 0.9rem; max-width: 68ch; padding: 1rem 1.2rem 1.1rem; border: 2px dashed var(--ink-faint); border-radius: 14px; background: var(--surface-2); }
+.placeholder p { font-style: italic; color: var(--ink-soft); font-size: 1.05rem; margin: 0.6rem 0 0; }
+.ph-badge { display: inline-block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); background: var(--surface); border: 1px solid var(--ink-faint); padding: 0.3rem 0.7rem; border-radius: 999px; }
 .detail-section .lede { font-size: 1.05rem; color: var(--ink-soft); max-width: 68ch; margin-top: 0.9rem; }
 .detail-section .lede + .lede { margin-top: 0.9rem; }
 

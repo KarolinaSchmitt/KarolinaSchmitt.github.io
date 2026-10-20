@@ -1,10 +1,15 @@
 # Site checker: lang, absolute hreflang (self, counterpart, x-default), canonical, local links/fragments/assets, lang switch, and required section ids per page (home pages: home work contact; about pages: contact).
-# Usage (from repo root): powershell -ExecutionPolicy Bypass -File tools/check-site.ps1
+# Game pages (games/, pt/games/): ids overview, role, challenges, results in order; one h1; provisional text blocks are counted (NOTE) and fail with -Publish.
+# Usage (from repo root): powershell -ExecutionPolicy Bypass -File tools/check-site.ps1 [-Publish]
+param([switch]$Publish)
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $skip = @('.git', '.superpowers', 'docs', 'tools')
 $siteUrl = 'https://karolinaschmitt.github.io/'
 $script:failures = New-Object System.Collections.ArrayList
+$script:notes = New-Object System.Collections.ArrayList
+$script:phTotal = 0
+$script:phPages = 0
 
 function Add-Fail($page, $reason) {
     [void]$script:failures.Add("FAIL: ${page}: $reason")
@@ -243,9 +248,32 @@ foreach ($f in $files) {
             Add-Fail $rel "missing section id=`"$id`""
         }
     }
+
+    # 5. game pages: template ids in order, one h1, provisional text blocks
+    if ($rel -like 'games/*' -or $rel -like 'pt/games/*') {
+        $pos = @()
+        foreach ($id in @('overview', 'role', 'challenges', 'results')) {
+            $mm = [regex]::Match($html, "(?<![\w-])id\s*=\s*[`"']$id[`"']")
+            if (-not $mm.Success) { Add-Fail $rel "missing section id=`"$id`""; $pos += -1 } else { $pos += $mm.Index }
+        }
+        if (-not ($pos -contains -1) -and -not (($pos[0] -lt $pos[1]) -and ($pos[1] -lt $pos[2]) -and ($pos[2] -lt $pos[3]))) {
+            Add-Fail $rel 'section ids must be in order: overview, role, challenges, results'
+        }
+        $h1 = [regex]::Matches($html, '<h1[\s>]', 'IgnoreCase').Count
+        if ($h1 -ne 1) { Add-Fail $rel "expected exactly one <h1>, found $h1" }
+        $ph = [regex]::Matches($html, '(?<![\w-])data-placeholder(?![\w-])').Count
+        if ($ph -gt 0) {
+            [void]$script:notes.Add("NOTE: ${rel}: $ph provisional text block(s)")
+            $script:phTotal += $ph
+            $script:phPages++
+            if ($Publish) { Add-Fail $rel "provisional text ($ph)" }
+        }
+    }
 }
 
 foreach ($line in $script:failures) { Write-Output $line }
+foreach ($line in $script:notes) { Write-Output $line }
+if ($script:phTotal -gt 0) { Write-Output "NOTE: $($script:phTotal) provisional text block(s) in $($script:phPages) page(s)" }
 if ($script:failures.Count -eq 0) {
     Write-Output 'OK'
     exit 0

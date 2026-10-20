@@ -81,7 +81,7 @@ img, video { max-width: 100%; display: block; }
 .inner { max-width: 1060px; margin: 0 auto; }
 .inner-narrow { max-width: 760px; margin: 0 auto; }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   font-family: "Bricolage Grotesque", "Hanken Grotesk", sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;

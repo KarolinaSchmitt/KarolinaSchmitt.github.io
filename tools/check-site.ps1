@@ -1,4 +1,4 @@
-# Site checker: lang, hreflang pairs, local links/assets, home section ids.
+# Site checker: lang, hreflang pairs, local links/assets, and the five home section ids (home work about experience contact).
 # Usage (from repo root): powershell -ExecutionPolicy Bypass -File tools/check-site.ps1
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))

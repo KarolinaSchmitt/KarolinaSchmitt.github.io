@@ -256,7 +256,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 .loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1rem, 2.5vw, 1.8rem); }
 .step { border-top: 2px solid var(--accent); padding-top: 0.9rem; }
 .step .k { font-family: "IBM Plex Mono", monospace; font-size: 0.9rem; letter-spacing: 0.1em; color: #8AA9F0; font-weight: 500; }
-.step h3 { font-size: 1.12rem; margin: 0.25rem 0 0.45rem; font-weight: 700; letter-spacing: -0.01em; color: var(--feature-ink); }
+.step h4 { font-size: 1.12rem; margin: 0.25rem 0 0.45rem; font-weight: 700; letter-spacing: -0.01em; color: var(--feature-ink); }
 .step p { font-size: 0.9rem; color: var(--feature-soft); }
 .loop-note { margin-top: 1.6rem; font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; color: var(--feature-soft); letter-spacing: 0.06em; }
 

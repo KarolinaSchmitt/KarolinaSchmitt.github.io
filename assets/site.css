@@ -95,7 +95,7 @@ h1, h2, h3 {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent-deep);
+  color: color-mix(in srgb, var(--accent-deep) 65%, var(--ink));
   background: color-mix(in srgb, var(--accent) 20%, transparent);
   padding: 0.42rem 0.8rem;
   border-radius: 999px;
@@ -152,7 +152,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 }
 .btn:hover { transform: translateY(-1px); }
 .btn-primary { background: var(--primary); color: #fff; }
-:root[data-theme="dark"] .btn-primary, :root:not([data-theme="light"]) .btn-primary { color: #0c1120; }
+:root[data-theme="dark"] .btn-primary { color: #0c1120; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { color: #0c1120; } }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 
@@ -233,7 +233,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
   font-size: 0.62rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-deep);
+  color: color-mix(in srgb, var(--accent-deep) 65%, var(--ink));
   background: color-mix(in srgb, var(--accent) 20%, transparent);
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
@@ -406,4 +406,9 @@ section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }
 @media (max-width: 480px) {
   body { font-size: 16px; }
   .gallery { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card, .card-media img, .card-body h3 .go, .gallery img { transition: none; }
+  .btn:hover, .card:hover, .card:hover .card-media img, .gallery a:hover img { transform: none; }
 }

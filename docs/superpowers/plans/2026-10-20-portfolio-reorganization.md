@@ -59,7 +59,7 @@ Pages: `pet-shop-fever`, `evolution-galaxy`, `vlogger-go-viral`, `my-boo` under 
   - `lang` attribute missing, or not `en` for non-`pt/` pages / `pt-BR` for `pt/` pages.
   - Missing `hreflang` alternate link, or the target file does not exist, or the target does not link back.
   - Local `href`/`src`/`poster` (not starting with `http`, `mailto:`, `#`) pointing to a file that does not exist (strip `#fragment`; resolve relative to the page).
-  - For `index.html` and `pt/index.html` only: each of the six section ids from Global Constraints exists as `id="…"`.
+  - For `index.html` and `pt/index.html` only: each of the section ids from Global Constraints (five after the 2026-10-20 amendment) exists as `id="…"`.
 - [ ] **Step 2: Run it.** Run: `powershell -ExecutionPolicy Bypass -File tools/check-site.ps1`. Expected: `FAILED n` — every page lacks hreflang and the home lacks most ids; no "file not found" failures on current EN links (proves the link check isn't a false alarm).
 - [ ] **Step 3: Commit.** `git add tools/check-site.ps1 && git commit -m "Add site checker"`
 
@@ -85,7 +85,7 @@ Pages: `pet-shop-fever`, `evolution-galaxy`, `vlogger-go-viral`, `my-boo` under 
   Menu links on EN case studies use `../index.html#work` etc.; on PT case studies `../index.html#work` too (relative to `pt/games/`, that is `pt/index.html`); on `pt/index.html` they are plain `#work`. The current page's language is shown as plain text (`<span class="lang current">EN</span>`), the other as a link.
 - Produces JS: `initMenu(): void` sets `aria-current="true"` on the menu link whose target section is most visible (IntersectionObserver); does nothing if the browser lacks it. `initTheme(): void` wires `#theme-toggle` to flip `document.documentElement.dataset.theme` between `light`/`dark` and persists it under localStorage key `theme`; every localStorage access is inside try/catch. Both run on `DOMContentLoaded`.
 
-- [ ] **Step 1: Failing checks.** Run the checker; confirm `index.html` fails for hreflang and missing ids `home work prototypes about experience contact`. (`work` already exists.)
+- [ ] **Step 1: Failing checks.** Run the checker; confirm `index.html` fails for hreflang and missing ids `home work about experience contact` (`prototypes` was in the original plan and was removed on 2026-10-20). (`work` already exists.)
 - [ ] **Step 2: Markup.** In `index.html` add `<html lang="en">` hreflang links in `<head>` (`en` → `index.html`, `pt-BR` → `pt/index.html`), the `<nav class="menu">` as the first child of `.doc`, `id="home"` on the hero `<header>`, and `<script src="assets/site.js" defer></script>` before `</body>`. Icons: small inline SVGs (one per item, `aria-hidden="true"`); labels live in `<span>`.
 - [ ] **Step 3: CSS.** `.menu`: `position: fixed; top: 0.9rem; left: 50%; transform: translateX(-50%)`, pill shape, `--surface` background, `--line` border, `var(--shadow)`, `z-index: 50`, horizontal flex, `max-width: calc(100vw - 1.5rem)`. `.menu a[aria-current="true"]` uses `--primary` background with white text. Below 640px hide `.menu a span` (icons only) and keep the lang link and toggle. `section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }`. Respect `prefers-reduced-motion` (no transitions).
 - [ ] **Step 4: JS** as specified in Interfaces. No other behavior.

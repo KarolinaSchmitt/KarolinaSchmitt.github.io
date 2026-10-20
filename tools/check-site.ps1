@@ -41,6 +41,35 @@ function Find-Target($full) {
     return $null
 }
 
+# Resolve without throwing; $null when the href has path-invalid characters.
+function Resolve-Safe($pageFull, $href) {
+    try { return Resolve-Href $pageFull $href } catch { return $null }
+}
+
+# True when every path segment matches the on-disk name exactly (GitHub Pages is case-sensitive).
+function Test-ExactCase($full) {
+    if (-not $full.StartsWith($root, [StringComparison]::OrdinalIgnoreCase)) { return $true }
+    $cur = $root
+    foreach ($seg in $full.Substring($root.Length).Split([char[]]@([char]92, [char]47), [StringSplitOptions]::RemoveEmptyEntries)) {
+        $names = @(Get-ChildItem -LiteralPath $cur -Force | ForEach-Object { $_.Name })
+        if (-not ($names -ccontains $seg)) { return $false }
+        $cur = Join-Path $cur $seg
+    }
+    return $true
+}
+
+# Returns 'ok', 'missing', 'case' or 'invalid' for an href on a page; $script:found holds the file.
+function Test-Local($pageFull, $href) {
+    $script:found = $null
+    $full = Resolve-Safe $pageFull $href
+    if (-not $full) { return 'invalid' }
+    $found = Find-Target $full
+    if (-not $found) { return 'missing' }
+    if (-not (Test-ExactCase $found)) { return 'case' }
+    $script:found = $found
+    return 'ok'
+}
+
 function Get-Attr($tag, $name) {
     $m = [regex]::Match($tag, "(?<![\w-])$name\s*=\s*(?:`"([^`"]*)`"|'([^']*)')", 'IgnoreCase')
     if (-not $m.Success) { return $null }
@@ -96,38 +125,49 @@ foreach ($f in $files) {
     } elseif ($alt.href -match '^(https?:|//)') {
         Add-Fail $rel "hreflang=$want href '$($alt.href)' must be a relative path"
     } else {
-        $target = Find-Target (Resolve-Href $f.FullName $alt.href)
-        if (-not $target) {
+        $st = Test-Local $f.FullName $alt.href
+        $target = $script:found
+        if ($st -eq 'invalid') {
+            Add-Fail $rel "invalid link: $($alt.href)"
+        } elseif ($st -eq 'case') {
+            Add-Fail $rel "case mismatch: $($alt.href)"
+        } elseif ($st -eq 'missing') {
             Add-Fail $rel "hreflang=$want target not found: $($alt.href)"
         } else {
             $thtml = [IO.File]::ReadAllText($target, [Text.Encoding]::UTF8)
             $back = $false
+            $backCase = $false
             foreach ($b in (Get-Alternates $thtml)) {
                 if ($b.href -match '^(https?:|//)') { continue }
-                $bt = Find-Target (Resolve-Href $target $b.href)
-                if ($bt -and ($bt -ieq $f.FullName)) { $back = $true; break }
+                $bf = Resolve-Safe $target $b.href
+                if (-not $bf) { continue }
+                $bt = Find-Target $bf
+                if ($bt -and ($bt -ceq $f.FullName)) { $back = $true; break }
+                if ($bt -and ($bt -ieq $f.FullName)) { $backCase = $true }
             }
-            if (-not $back) {
+            if ($backCase -and -not $back) {
+                Add-Fail $rel "case mismatch: back-link from $(Get-Rel $target) points to a differently-cased path"
+            } elseif (-not $back) {
                 Add-Fail $rel "hreflang target $(Get-Rel $target) does not link back"
             }
         }
     }
-
     # 3. local href/src/poster targets exist
     $seen = @{}
     foreach ($m in [regex]::Matches($html, '(?<![\w-])(?:href|src|poster)\s*=\s*(?:"([^"]*)"|''([^'']*)'')', 'IgnoreCase')) {
         $val = $m.Groups[1].Value
         if (-not $m.Groups[1].Success) { $val = $m.Groups[2].Value }
         $val = $val.Trim()
-        if ($val -eq '' -or $val -match '^(https?:|mailto:|tel:|data:|javascript:|#|//)') { continue }
+        if ($val -eq '' -or $val -match '^([a-zA-Z][a-zA-Z0-9+.-]*:|#|//)') { continue }
         if ($seen.ContainsKey($val)) { continue }
         $seen[$val] = $true
         $path = $val
         $i = $path.IndexOfAny([char[]]'?#')
         if ($i -eq 0) { continue }
-        if (-not (Find-Target (Resolve-Href $f.FullName $val))) {
-            Add-Fail $rel "file not found: $val"
-        }
+        $st = Test-Local $f.FullName $val
+        if ($st -eq 'invalid') { Add-Fail $rel "invalid link: $val" }
+        elseif ($st -eq 'case') { Add-Fail $rel "case mismatch: $val" }
+        elseif ($st -eq 'missing') { Add-Fail $rel "file not found: $val" }
     }
 
     # 4. section ids on the two home pages

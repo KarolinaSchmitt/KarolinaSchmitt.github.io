@@ -16,7 +16,7 @@ Reference: https://www.viniciusbustamanti.space/pt/ . What is borrowed: floating
 
 **Success criteria:**
 - Every home section is reachable in one click from a fixed menu.
-- All four projects share one scannable card format.
+- All nine games share one scannable card format (image, studio · platform, sentence, role chips).
 - Every page exists in EN and PT, and the language switch lands on the equivalent page.
 - Nothing is published without Karolina's approval.
 
@@ -26,14 +26,18 @@ Reference: https://www.viniciusbustamanti.space/pt/ . What is borrowed: floating
 - New fonts, colors or logo. The blue/amber palette, fonts and light/dark theme stay.
 - Analytics, a build step, or any framework.
 - Changes to `main`.
-- The "Concepts & prototyping" section (4 concept pitches) is **removed from the site** (Karolina's decision, 2026-10-20). Its menu item and id `prototypes` go with it. "Earlier games" moves from Experience into Work. Menu has 5 items: Home, Work, About, Experience, Contact.
+- The "Concepts & prototyping" section (4 concept pitches) is **removed from the site** (Karolina's decision, 2026-10-20). Its menu item and id `prototypes` go with it. "Earlier games" moves from Experience into Work. (Superseded by Revision 2: the menu now has 4 items.)
 
 ## 3. File structure
 
+> **Revision 2 (2026-10-20, Karolina):** the home is restructured into three blocks (profile, games grid, contact) and the About/Experience content moves to a separate About page. Section 4 below is the current design; the older home layout (featured Pet Shop Fever card, Earlier games strip inside Work, About and Experience on the home, 5-item menu) is superseded.
+
 ```
 /index.html               home (EN) - existing URL stays valid
+/about.html               About page (EN): intro paragraph, How I work, Narrative & impact, Experience timeline
 /games/*.html             4 case studies (EN)
 /pt/index.html            home (PT)
+/pt/about.html            About page (PT)
 /pt/games/*.html          4 case studies (PT)
 /assets/                  shared: site.css, site.js, images, videos
 /docs/superpowers/specs/  this spec
@@ -47,15 +51,23 @@ Reference: https://www.viniciusbustamanti.space/pt/ . What is borrowed: floating
 
 A floating pill menu (fixed at top, icons plus labels) with the language switch and the theme toggle at its end.
 
-| Menu item | Section | Content |
-|---|---|---|
-| Home | Profile | Photo, name, positioning line, buttons "View projects" and "Email" (the 4-stat strip was removed by Karolina, 2026-10-20) |
-| Work | Selected work + Earlier games | Pet Shop Fever as one full-width featured card; the other 3 projects in a grid below; then an always-visible "Earlier games" strip (Playmove, 2015-2019, PC & Mobile) with its 5 thumbnails |
-| About | How I work + Narrative & impact | Four-step process and the narrative paragraph, merged into one block |
-| Experience | Experience | Timeline only |
-| Contact | Let's talk | Email, LinkedIn, location |
+**Menu (4 items):** Home (`#home`), Work (`#work`), About (page `about.html`), Contact (`#contact`), then the language switch and theme toggle. On `about.html` and the case studies the first two and Contact point back to the home sections (`index.html#home`, …); on `about.html` the About item is marked `aria-current="page"`.
 
-**Project card format (all four):** cover, genre and platform chip, title, one-sentence description, role chips. The long paragraph moves to the case study (where it already lives). Grid: 3 compact cards in one row on desktop (avoids an orphan card), 1 column on mobile.
+**Home** (3 blocks):
+
+| Block | Id | Content |
+|---|---|---|
+| Profile | `home` | Photo (kept), eyebrow "Game Designer — Mechanics, Systems & Player Experience" (title and skills), the summary phrase as h1 ("I design the mechanics and systems that give a game its intended emotional experience."), location chip, and two buttons: **E-mail** and **LinkedIn** (icon buttons, address not shown as text) |
+| Games | `work` | Heading "10+ years of experience", note "The games I've worked on", then a uniform grid of 9 game cards (below) |
+| Contact | `contact` | "Let's talk." heading, the existing "I'm looking for a role…" sentence, the same **E-mail** and **LinkedIn** buttons, location, the education/languages line |
+
+**Game card (all 9, same size):** image; chip "Studio · Platform" (Tapps Games · Mobile; Playmove · PC & Mobile); title; one sentence; role chips. Grid: 3 columns on desktop, 2 on tablet, 1 on mobile. Order: Pet Shop Fever, Evolution Galaxy: Mutant Merge, Vlogger Go Viral, My Boo, then the five Playmove games (Liga do Tempo, Color Shooter, Lab Boom, Divertron, Guardiões do Mundo).
+- The 4 Tapps cards are links to their case study. The 5 Playmove cards have no page and are not links (no invented content).
+- Card text and role chips use existing wording (the first sentence of the existing text; role chips from the existing tags). For Lab Boom and Divertron the site states no role, so the chip is "Game design". **These card texts are placeholders: Karolina will rewrite them in the next step.**
+
+**About page:** h1 "About"; the intro paragraph formerly in the home hero ("Eleven years in game design, 10+ shipped titles…"); "How I work" (4 steps); "Narrative & impact"; Experience timeline (four jobs). The sentence formerly introducing Earlier games ("The first place I designed around an explicit learning and emotional goal…") moves, verbatim, to the Playmove job entry. Ends with the same contact block.
+
+**Contact block** appears on the home, About and every case study, identical, with buttons instead of a printed e-mail address.
 
 ## 5. Project pages
 

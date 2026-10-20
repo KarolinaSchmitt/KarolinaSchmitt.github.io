@@ -104,18 +104,6 @@ h1, h2, h3 {
 a { color: var(--primary-ink); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
 
-/* ---------------- top bar (detail pages) ---------------- */
-.topbar { padding-top: clamp(1.6rem, 4vw, 2.4rem); padding-bottom: 0.5rem; }
-.crumb {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 0.78rem; letter-spacing: 0.04em;
-  color: var(--ink-soft); text-decoration: none;
-}
-.crumb:hover { color: var(--primary-ink); }
-.crumb .arrow { transition: transform .12s ease; }
-.crumb:hover .arrow { transform: translateX(-3px); }
-
 /* ---------------- hero ---------------- */
 .hero {
   position: relative;

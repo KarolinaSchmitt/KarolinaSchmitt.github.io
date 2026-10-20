@@ -8,15 +8,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="my-boo.html">
+<link rel="alternate" hreflang="pt-BR" href="../pt/games/my-boo.html">
 </head>
 <body>
 <div class="doc">
 
-  <div class="topbar band">
-    <div class="inner-narrow">
-      <a class="crumb" href="../index.html"><span class="arrow">&larr;</span> Karolina Schmitt</a>
-    </div>
-  </div>
+  <nav class="menu" aria-label="Main">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Work</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>About</span></a>
+    <a href="../index.html#experience"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Experience</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contact</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">EN</span>
+    <a class="lang" href="../pt/games/my-boo.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    <button type="button" id="theme-toggle" aria-label="Toggle theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
 
   <header class="detail-hero band">
     <div class="inner-narrow">
@@ -67,5 +75,6 @@
   </footer>
 
 </div>
+<script src="../assets/site.js" defer></script>
 </body>
 </html>

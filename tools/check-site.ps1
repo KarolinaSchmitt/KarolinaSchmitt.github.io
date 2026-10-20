@@ -1,9 +1,10 @@
-# Site checker: lang, hreflang pairs, local links/assets, and the five home section ids (home work about experience contact).
+# Site checker: lang, absolute hreflang (self, counterpart, x-default), canonical, local links/fragments/assets, lang switch, and the five home section ids (home work about experience contact).
 # Usage (from repo root): powershell -ExecutionPolicy Bypass -File tools/check-site.ps1
 $ErrorActionPreference = 'Stop'
 $root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $skip = @('.git', '.superpowers', 'docs', 'tools')
 $sectionIds = @('home', 'work', 'about', 'experience', 'contact')
+$siteUrl = 'https://karolinaschmitt.github.io/'
 $script:failures = New-Object System.Collections.ArrayList
 
 function Add-Fail($page, $reason) {
@@ -18,6 +19,7 @@ function Get-Rel($full) {
 # Resolve an href relative to a page's folder (root-relative if it starts with /).
 function Resolve-Href($pageFull, $href) {
     $h = $href
+    if ($h.StartsWith($siteUrl)) { $h = '/' + $h.Substring($siteUrl.Length) }
     $i = $h.IndexOfAny([char[]]'?#')
     if ($i -ge 0) { $h = $h.Substring(0, $i) }
     $h = [Uri]::UnescapeDataString($h)
@@ -70,6 +72,12 @@ function Test-Local($pageFull, $href) {
     return 'ok'
 }
 
+# The EN file for a page: itself for EN pages, the pt/-stripped path for PT pages.
+function Get-EnVersion($full, $rel) {
+    if ($rel.StartsWith('pt/')) { return Join-Path $root ($rel.Substring(3).Replace('/', [string][char]92)) }
+    return $full
+}
+
 function Get-Attr($tag, $name) {
     $m = [regex]::Match($tag, "(?<![\w-])$name\s*=\s*(?:`"([^`"]*)`"|'([^']*)')", 'IgnoreCase')
     if (-not $m.Success) { return $null }
@@ -113,17 +121,34 @@ foreach ($f in $files) {
         Add-Fail $rel "lang is '$($lm.Groups[1].Value)', expected '$expected'"
     }
 
-    # 2. hreflang counterpart
+    # 2. hreflang: self, counterpart (back-link in the right language), x-default -> EN version
     $want = 'pt-BR'
     if ($isPt) { $want = 'en' }
     $alt = $null
+    $self = $null
+    $xdef = $null
     foreach ($a in (Get-Alternates $html)) {
-        if ($a.hreflang -ieq $want) { $alt = $a; break }
+        if ($a.hreflang -ieq $want) { $alt = $a }
+        elseif ($a.hreflang -ieq $expected) { $self = $a }
+        elseif ($a.hreflang -ieq 'x-default') { $xdef = $a }
+    }
+    $target = $null
+    if (-not $self) {
+        Add-Fail $rel "missing <link rel=`"alternate`" hreflang=`"$expected`"> (self reference)"
+    } else {
+        $st = Test-Local $f.FullName $self.href
+        if ($st -ne 'ok') { Add-Fail $rel "hreflang=$expected self reference does not resolve ($st): $($self.href)" }
+        elseif ($script:found -cne $f.FullName) { Add-Fail $rel "hreflang=$expected does not point to this page: $($self.href)" }
+    }
+    if (-not $xdef) {
+        Add-Fail $rel "missing <link rel=`"alternate`" hreflang=`"x-default`">"
+    } else {
+        $st = Test-Local $f.FullName $xdef.href
+        if ($st -ne 'ok') { Add-Fail $rel "x-default does not resolve ($st): $($xdef.href)" }
+        elseif ($script:found -cne (Get-EnVersion $f.FullName $rel)) { Add-Fail $rel "x-default must point to the EN version: $($xdef.href)" }
     }
     if (-not $alt) {
         Add-Fail $rel "missing <link rel=`"alternate`" hreflang=`"$want`">"
-    } elseif ($alt.href -match '^(https?:|//)') {
-        Add-Fail $rel "hreflang=$want href '$($alt.href)' must be a relative path"
     } else {
         $st = Test-Local $f.FullName $alt.href
         $target = $script:found
@@ -137,20 +162,49 @@ foreach ($f in $files) {
             $thtml = [IO.File]::ReadAllText($target, [Text.Encoding]::UTF8)
             $back = $false
             $backCase = $false
+            $backLang = $false
             foreach ($b in (Get-Alternates $thtml)) {
-                if ($b.href -match '^(https?:|//)') { continue }
                 $bf = Resolve-Safe $target $b.href
                 if (-not $bf) { continue }
                 $bt = Find-Target $bf
-                if ($bt -and ($bt -ceq $f.FullName)) { $back = $true; break }
+                if ($bt -and ($bt -ceq $f.FullName)) {
+                    if ($b.hreflang -ieq $expected) { $back = $true; break }
+                    elseif ($b.hreflang -ine 'x-default') { $backLang = $true }
+                }
                 if ($bt -and ($bt -ieq $f.FullName)) { $backCase = $true }
             }
-            if ($backCase -and -not $back) {
+            if ($backCase -and -not $back -and -not $backLang) {
                 Add-Fail $rel "case mismatch: back-link from $(Get-Rel $target) points to a differently-cased path"
+            } elseif ($backLang -and -not $back) {
+                Add-Fail $rel "back-link from $(Get-Rel $target) has the wrong hreflang (expected $expected)"
             } elseif (-not $back) {
                 Add-Fail $rel "hreflang target $(Get-Rel $target) does not link back"
             }
         }
+    }
+    # 2b. visible language switch must match the hreflang counterpart
+    $sw = $null
+    foreach ($m in [regex]::Matches($html, '<a\b[^>]*>', 'IgnoreCase')) {
+        $cls = Get-Attr $m.Value 'class'
+        if ($cls -and (($cls -split '\s+') -contains 'lang') -and (Get-Attr $m.Value 'href')) { $sw = Get-Attr $m.Value 'href'; break }
+    }
+    if (-not $sw) {
+        Add-Fail $rel "missing language switch link"
+    } elseif ($target) {
+        $st = Test-Local $f.FullName $sw
+        if ($st -ne 'ok' -or $script:found -cne $target) { Add-Fail $rel "lang switch does not match hreflang counterpart" }
+    }
+    # 2c. canonical points to this page
+    $canon = $null
+    foreach ($m in [regex]::Matches($html, '<link\b[^>]*>', 'IgnoreCase')) {
+        $r = Get-Attr $m.Value 'rel'
+        if ($r -and (($r -split '\s+') -contains 'canonical')) { $canon = Get-Attr $m.Value 'href'; break }
+    }
+    if (-not $canon) {
+        Add-Fail $rel "missing rel=canonical"
+    } else {
+        $st = Test-Local $f.FullName $canon
+        if ($st -ne 'ok' -or $script:found -cne $f.FullName) { Add-Fail $rel "canonical does not point to this page: $canon" }
     }
     # 3. local href/src/poster targets exist
     $seen = @{}
@@ -168,12 +222,23 @@ foreach ($f in $files) {
         if ($st -eq 'invalid') { Add-Fail $rel "invalid link: $val" }
         elseif ($st -eq 'case') { Add-Fail $rel "case mismatch: $val" }
         elseif ($st -eq 'missing') { Add-Fail $rel "file not found: $val" }
+        elseif ($st -eq 'ok' -and $i -gt 0 -and $path[$i] -eq '#' -and $script:found -match '\.html?$') {
+            $frag = [Uri]::UnescapeDataString($path.Substring($i + 1))
+            $th = [IO.File]::ReadAllText($script:found, [Text.Encoding]::UTF8)
+            if ($frag -ne '' -and -not [regex]::IsMatch($th, "(?<![\w-])id\s*=\s*[`"']$([regex]::Escape($frag))[`"']")) { Add-Fail $rel "missing fragment $val" }
+        }
+    }
+
+    # 3b. same-page #fragment links must have a matching id
+    foreach ($m in [regex]::Matches($html, '(?<![\w-])href\s*=\s*"#([^"]+)"', 'IgnoreCase')) {
+        $frag = $m.Groups[1].Value
+        if (-not [regex]::IsMatch($html, "(?<![\w-])id\s*=\s*[`"']$([regex]::Escape($frag))[`"']")) { Add-Fail $rel "missing fragment #$frag" }
     }
 
     # 4. section ids on the two home pages
     if ($rel -eq 'index.html' -or $rel -eq 'pt/index.html') {
         foreach ($id in $sectionIds) {
-            if ($html -notmatch "(?<![\w-])id\s*=\s*[`"']$id[`"']") {
+            if ($html -cnotmatch "(?<![\w-])id\s*=\s*[`"']$id[`"']") {
                 Add-Fail $rel "missing section id=`"$id`""
             }
         }

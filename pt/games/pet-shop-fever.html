@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Shop Fever: estudo de caso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="pt-BR" href="pet-shop-fever.html">
+<link rel="alternate" hreflang="en" href="../../games/pet-shop-fever.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Principal">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Início</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Projetos</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Sobre</span></a>
+    <a href="../index.html#experience"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Experiência</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contato</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">PT</span>
+    <a class="lang" href="../../games/pet-shop-fever.html" hreflang="en" lang="en">EN</a>
+    <button type="button" id="theme-toggle" aria-label="Alternar tema"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Tapps Games · Em operação desde 2022</span>
+      <h1>Pet Shop Fever</h1>
+      <div class="detail-meta">Time management · Narrativa, features, sistemas</div>
+      <p class="sub">Um jogo de time management em operação, no qual o jogador constrói e expande uma rede de pet shops por vários mundos. Escrevo a narrativa &mdash; histórias de eventos, textos dentro do jogo e os arcos que conectam seus mundos &mdash; e projeto as features e a economia que o mantêm vivo.</p>
+      <div class="detail-tags">
+        <span class="tag">Design de narrativa</span>
+        <span class="tag">Histórias de eventos</span>
+        <span class="tag">Escrita dentro do jogo</span>
+        <span class="tag">Arcos de mundo</span>
+        <span class="tag">Design de features</span>
+        <span class="tag">Coleções e desafios</span>
+        <span class="tag">Minigames</span>
+        <span class="tag">Economia e balanceamento</span>
+        <span class="tag">A/B testing</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner">
+    <div class="inner-narrow">
+      <img src="../../assets/psf/shot-title.jpg" alt="Tela de título de Pet Shop Fever">
+    </div>
+  </div>
+
+  <section class="detail-section band">
+    <div class="inner-narrow">
+      <h2>Visão geral</h2>
+      <p class="lede">Pet Shop Fever é o título de time management em operação da Tapps Games: o jogador administra e expande uma rede de pet shops por vários mundos, cuidando dos animais e atendendo clientes. Está em operação há anos, então o trabalho é menos inventar um núcleo do zero e mais manter um jogo querido crescendo &mdash; história nova, features novas, eventos novos &mdash; sem quebrar o que já funciona.</p>
+      <p class="lede">Meu papel abrange três frentes: a <strong>narrativa</strong> do jogo, as <strong>features</strong> que levam o jogador de uma sessão para outra e a <strong>economia</strong> que amarra tudo. Desenvolvido em Unity, entregue com Scrum, ajustado por meio de playtests e de um programa contínuo de A/B testing.</p>
+    </div>
+  </section>
+
+  <section class="detail-section band">
+    <div class="inner-narrow">
+      <h2>Narrativa</h2>
+      <p class="lede">Um jogo casual conquista retenção com motivos para voltar, e a história é um dos mais fortes. Eu escrevo a voz do jogo e as suas linhas narrativas.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-events.jpg" alt="Calendário do evento Sakura's Nightmare">
+          <div class="fc-body">
+            <div class="k">Histórias de eventos</div>
+            <h3>LiveOps com enredo</h3>
+            <p>Eventos como Sakura's Nightmare e Cloud Chaser Mission chegam com suas próprias histórias curtas, de modo que um evento é uma pequena história que o jogador quer acompanhar até o fim, e não apenas uma trilha de recompensas.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-voice.jpg" alt="Evento Feed Jenny com diálogo dentro do jogo">
+          <div class="fc-body">
+            <div class="k">Escrita dentro do jogo</div>
+            <h3>A voz do jogo</h3>
+            <p>Diálogos, textos de tutorial, notificações e textos de eventos &mdash; um tom consistente entre personagens, menus e mensagens.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-worlds.jpg" alt="Tela de seleção de mundos e lojas de My Pet Shops">
+          <div class="fc-body">
+            <div class="k">Arcos de mundo</div>
+            <h3>Fios entre os mundos</h3>
+            <p>Arcos narrativos que conectam os mundos do jogo, para que avançar dê a sensação de percorrer uma história, e não de desbloquear uma lista.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band">
+    <div class="inner-narrow">
+      <h2>Features que projetei</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-collections.jpg" alt="Tela de conquistas e coleções">
+          <div class="fc-body">
+            <div class="k">Coleções</div>
+            <h3>Sistemas de coleção</h3>
+            <p>Conjuntos de itens colecionáveis dão ao jogador um objetivo que vive entre os momentos da história e alimenta a economia de recompensas.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-challenges.jpg" alt="Quadro de tarefas de Cloud Chaser Mission">
+          <div class="fc-body">
+            <div class="k">Desafios diários</div>
+            <h3>Desafios diários</h3>
+            <p>Objetivos curtos e repetíveis que recompensam o login diário e dão à economia uma fonte constante e previsível.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-minigames.jpg" alt="Minigame Enzo's Smoothies">
+          <div class="fc-body">
+            <div class="k">Minigames</div>
+            <h3>Minigames</h3>
+            <p>Enzo's Smoothies e Dig, Find, Move! (abaixo) são minigames que projetei das regras à sensação de jogo, funcionando tanto como features independentes quanto como conteúdo de eventos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band">
+    <div class="inner-narrow">
+      <h2>Economia e progressão</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-economy.jpg" alt="Loja do jogo com pacotes de moeda soft e hard">
+          <div class="fc-body">
+            <div class="k">Fontes e sinks</div>
+            <h3>Economia com várias moedas</h3>
+            <p>As fontes de moeda soft e hard são mapeadas contra seus sinks em cada mundo, para que um mundo novo nunca comece com o jogador já em déficit.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-difficulty.jpg" alt="Tela de upgrades mostrando custo e duração do serviço">
+          <div class="fc-body">
+            <div class="k">Dificuldade</div>
+            <h3>Dificuldade e ritmo</h3>
+            <p>O ritmo das fases e as curvas de vitória e derrota são ajustados para que o desafio continue significativo e para que boosters, vidas extras e Second Chance tenham um papel claro no jogo, e não só na loja.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img class="fc-img" src="../../assets/psf/feat-offers.jpg" alt="Evento de ofertas Pet Food Donation Fair">
+          <div class="fc-body">
+            <div class="k">Ofertas</div>
+            <h3>Ofertas e valor de transação</h3>
+            <p>A loja e as ofertas contextuais são moldadas e testadas em A/B testing para sustentar o jogo sem fazer a loja parecer uma barreira.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Em ação</h2>
+      <p class="lede">Dois dos minigames que projetei, gravados em uma build de desenvolvimento.</p>
+      <div class="clip-grid">
+        <figure class="clip">
+          <video controls loop muted playsinline poster="../../assets/psf/poster-smoothies.jpg">
+            <source src="../../assets/psf/clip-smoothies.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Enzo's Smoothies</b><span>Minigame de sequência &mdash; uma feature independente e conteúdo recorrente de eventos.</span></figcaption>
+        </figure>
+        <figure class="clip">
+          <video controls loop muted playsinline poster="../../assets/psf/poster-dig.jpg">
+            <source src="../../assets/psf/clip-dig.mp4" type="video/mp4">
+          </video>
+          <figcaption><b>Dig, Find, Move!</b><span>Minigame de coleção em grade, ligado aos objetivos dos eventos.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Próximo projeto</div>
+      <a class="big" href="evolution-galaxy.html"><h2>Evolution Galaxy: Mutant Merge</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band">
+    <div class="inner">
+      <h2>Vamos <span class="u">conversar</span>.</h2>
+      <p>Estou em busca de uma posição projetando mecânicas e sistemas para jogos imersivos e guiados pela narrativa.</p>
+      <div class="links">
+        <a href="mailto:karolinafschmitt@gmail.com">karolinafschmitt@gmail.com</a>
+        <a href="https://www.linkedin.com/in/karolina-schmitt-a7623390/">LinkedIn</a>
+        <span>Blumenau, Brasil</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

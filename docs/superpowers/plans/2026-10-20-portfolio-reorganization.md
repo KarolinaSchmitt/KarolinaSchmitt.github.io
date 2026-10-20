@@ -16,16 +16,16 @@
 - No new fonts or colors: reuse CSS variables in `assets/site.css` (`--primary`, `--accent`, `--surface`, `--line`, `--feature-bg`, …). Fonts: Bricolage Grotesque / Hanken Grotesk / IBM Plex Mono.
 - Light/dark theme must keep working (system preference by default, `data-theme` attribute override).
 - No new case-study content. Home card descriptions = the **first sentence** of the existing paragraph; everything else is existing text moved or translated.
-- The site must be navigable with JavaScript disabled (anchor links, `<details>`).
+- The site must be navigable with JavaScript disabled (anchor links).
 - EN stays at the existing URLs (`/index.html`, `/games/*.html`); PT lives in `/pt/` and `/pt/games/`. CSS, images and videos are shared, never copied.
-- Section ids on the home (both languages): `home`, `work`, `prototypes`, `about`, `experience`, `contact`.
+- Section ids on the home (both languages): `home`, `work`, `about`, `experience`, `contact`. (Amended 2026-10-20: `prototypes` and its section were removed by Karolina; menu has 5 items.)
 - Every page: `<html lang="en">` or `<html lang="pt-BR">`, plus reciprocal `<link rel="alternate" hreflang="en|pt-BR" href="…">` to its counterpart.
 - Game names, job titles, and terms like LiveOps, A/B testing, F2P stay untranslated.
 - Commit messages end with `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
 
 ## Review Focus
 
-1. **JavaScript disabled or `localStorage` blocked:** menu links still jump to sections, "See more +" still opens, theme follows the system, no exception thrown. (Task 2 tests it.)
+1. **JavaScript disabled or `localStorage` blocked:** menu links still jump to sections, theme follows the system, no exception thrown. (Task 2 tests it.)
 2. **Sticky menu covering the section heading after an anchor jump:** headings must remain visible. (Task 2: `scroll-margin-top`, checked in browser.)
 3. **320px-wide phone:** menu fits (icons only), no horizontal scrollbar on any page. (Checked on every page in Tasks 3–7 with `scrollWidth <= innerWidth`.)
 4. **Missing or one-way EN/PT counterpart, broken internal link or image:** language switch 404s. (Task 1 checker.)
@@ -38,7 +38,7 @@
 | File | Responsibility |
 |---|---|
 | `tools/check-site.ps1` | Automated checks: links, hreflang pairs, lang attributes, menu ids |
-| `assets/site.css` | Existing styles + new menu, featured/compact cards, chips, `details.more` |
+| `assets/site.css` | Existing styles + new menu, featured/compact cards, chips, earlier-games strip |
 | `assets/site.js` | `initMenu()` highlight, `initTheme()` toggle |
 | `index.html`, `games/*.html` | EN home and case studies |
 | `pt/index.html`, `pt/games/*.html` | PT home and case studies |
@@ -76,7 +76,7 @@ Pages: `pet-shop-fever`, `evolution-galaxy`, `vlogger-go-viral`, `my-boo` under 
 - Produces markup contract used by every page:
   ```html
   <nav class="menu" aria-label="Main">
-    <a href="#home">…icon…<span>Home</span></a> … work, prototypes, about, experience, contact
+    <a href="#home">…icon…<span>Home</span></a> … work, about, experience, contact (5 items; amended in Task 4)
     <span class="menu-sep"></span>
     <a class="lang" href="pt/index.html" hreflang="pt-BR" lang="pt-BR">PT</a>
     <button type="button" id="theme-toggle" aria-label="Toggle theme">…icon…</button>
@@ -116,15 +116,20 @@ Pages: `pet-shop-fever`, `evolution-galaxy`, `vlogger-go-viral`, `my-boo` under 
 **Files:**
 - Modify: `index.html`, `assets/site.css`
 
-**Interfaces:**
-- Consumes: section id contract; `.sec-head`, `.feature-card`, `.step`, `.job`, `.thumb` classes (existing).
-- Produces: `details.more` (with `summary` styled as a ghost button reading "See more +", changing to "See less −" when open via `details[open] summary`).
+**Amended 2026-10-20 (Karolina's decision):** the "Concepts & prototyping" section is deleted, and "Earlier games" moves from Experience into Work as an always-visible strip. No collapsible, no `details.more`. This task also removes the Prototypes item from the menu (Task 2) and the `prototypes` id from the checker (Task 1).
 
-- [ ] **Step 1: Failing check.** Run the checker; expect only the ids `prototypes about experience contact` missing.
-- [ ] **Step 2: Reorder and id the sections** to match the spec order: hero (`#home`) → stats → work (`#work`) → concepts (`id="prototypes"`, rename existing `id="prototyping"`) → **About** (`id="about"`: wrap the dark "How I work" block and the "Narrative & impact" text in one `<section id="about">`, heading `About`, keep both sub-blocks' text unchanged) → Experience (`id="experience"`, timeline unchanged) with the "Earlier games" content moved inside a `<details class="more"><summary>See more +</summary>…</details>` directly under the jobs → footer (`id="contact"`).
-- [ ] **Step 3: CSS** for `details.more` (reuse `.btn-ghost` look; hide the default marker) and the About wrapper (keep the dark `.process` band; the narrative text follows it on the normal background).
-- [ ] **Step 4: Verify.** Checker prints `OK` for EN pages except the missing `pt/` counterpart (Task 6). Browser: every menu item lands on its section; the `<details>` opens and closes by mouse and by keyboard (Enter/Space); 320px has no horizontal scroll.
-- [ ] **Step 5: Commit.** `git commit -am "Reorganize home sections: About, Experience with collapsible earlier games"`
+**Files:**
+- Modify: `index.html`, `assets/site.css`, `assets/site.js` (bottom-of-page fallback only), `tools/check-site.ps1` (required ids list)
+
+**Interfaces:**
+- Consumes: section id contract (5 ids); `.sec-head`, `.step`, `.job`, `.thumb` classes (existing).
+- Produces: `.earlier-strip` inside `#work`, below `.cards`: a `.sec-head`-style sub-heading "Earlier games" with note "Playmove · 2015-2019 · PC & Mobile", the existing lede, and the existing `.thumbs` grid with its 5 `.thumb` items (text unchanged).
+
+- [ ] **Step 1: Failing check.** Update the checker's required ids to `home work about experience contact`; run it and confirm `index.html` fails for ids `about experience contact` that do not exist yet in the committed tree (or note which already exist in the working tree).
+- [ ] **Step 2: Reorder and id the sections:** hero (`#home`) → stats → work (`#work`, containing the cards, then the `.earlier-strip`) → **About** (`id="about"`: wrap the dark "How I work" block and the "Narrative & impact" text in one `<section id="about">`, heading `About`, text unchanged) → Experience (`id="experience"`, timeline unchanged, nothing collapsible) → footer (`id="contact"`). Delete the whole "Concepts & prototyping" section (heading, lede, 4 concept cards) and the Prototypes menu item (markup and its SVG).
+- [ ] **Step 3: CSS** for `.earlier-strip` (spacing below the cards, reuse existing `.thumbs`/`.thumb` rules) and the About wrapper (keep the dark `.process` band; the narrative text follows it on the normal background). Remove CSS that is now dead (`.concepts-grid` and any `details.more` rules).
+- [ ] **Step 4: Verify.** Checker prints only the known PT counterpart failures. Browser: each of the 5 menu items lands on its section with the heading visible and the right `aria-current`; at the bottom of the page Contact is current; `scrollWidth <= innerWidth` at 320px; the earlier-games strip shows 5 thumbs.
+- [ ] **Step 5: Commit.** `git commit -am "Reorganize home: earlier games in Work, remove prototypes, About and Experience"`
 
 ---
 
@@ -150,7 +155,7 @@ Pages: `pet-shop-fever`, `evolution-galaxy`, `vlogger-go-viral`, `my-boo` under 
 **Interfaces:**
 - Consumes: finished EN `index.html` as the source; asset paths become `../assets/…`; menu links are `#home`… ; the lang switch points to `../index.html`; hreflang `pt-BR` → `index.html`, `en` → `../index.html`; case-study links point to `games/<file>.html`.
 
-- [ ] **Step 1: Copy `index.html` to `pt/index.html`**, fix paths and `lang="pt-BR"`, and translate every visible string, `alt` text, `<title>` and meta description to natural Brazilian Portuguese. Keep terms listed in Global Constraints in English. Menu labels: Início, Projetos, Protótipos, Sobre, Experiência, Contato. Buttons: "Ver projetos", "Enviar e-mail", "Ver mais +".
+- [ ] **Step 1: Copy `index.html` to `pt/index.html`**, fix paths and `lang="pt-BR"`, and translate every visible string, `alt` text, `<title>` and meta description to natural Brazilian Portuguese. Keep terms listed in Global Constraints in English. Menu labels: Início, Projetos, Sobre, Experiência, Contato. Buttons: "Ver projetos", "Enviar e-mail". Earlier games strip: "Jogos anteriores", note "Playmove · 2015-2019 · PC e Mobile".
 - [ ] **Step 2: Verify.** Checker: `pt/index.html` passes; EN↔PT home pair is reciprocal. Browser at 320 and 1280px: no menu, chip or card text overflows (focus item 5); no horizontal scroll.
 - [ ] **Step 3: Review gate.** Tell Karolina the PT text is ready to read in `pt/index.html` and wait for her corrections before Task 7 reuses the vocabulary. Apply her edits.
 - [ ] **Step 4: Commit.** `git add pt && git commit -m "Add Portuguese home"`

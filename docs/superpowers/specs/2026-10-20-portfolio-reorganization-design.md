@@ -26,6 +26,7 @@ Reference: https://www.viniciusbustamanti.space/pt/ . What is borrowed: floating
 - New fonts, colors or logo. The blue/amber palette, fonts and light/dark theme stay.
 - Analytics, a build step, or any framework.
 - Changes to `main`.
+- The "Concepts & prototyping" section (4 concept pitches) is **removed from the site** (Karolina's decision, 2026-10-20). Its menu item and id `prototypes` go with it. "Earlier games" moves from Experience into Work. Menu has 5 items: Home, Work, About, Experience, Contact.
 
 ## 3. File structure
 
@@ -49,10 +50,9 @@ A floating pill menu (fixed at top, icons plus labels) with the language switch 
 | Menu item | Section | Content |
 |---|---|---|
 | Home | Profile | Photo, name, positioning line, 4 stats, buttons "View projects" and "Email" |
-| Work | Selected work | Pet Shop Fever as one full-width featured card; the other 3 projects in a grid below |
-| Prototypes | Concepts & prototyping | The 4 concepts as smaller cards |
+| Work | Selected work + Earlier games | Pet Shop Fever as one full-width featured card; the other 3 projects in a grid below; then an always-visible "Earlier games" strip (Playmove, 2015-2019, PC & Mobile) with its 5 thumbnails |
 | About | How I work + Narrative & impact | Four-step process and the narrative paragraph, merged into one block |
-| Experience | Experience + Earlier games | Timeline; Playmove earlier games collapsed behind "See more +" |
+| Experience | Experience | Timeline only |
 | Contact | Let's talk | Email, LinkedIn, location |
 
 **Project card format (all four):** cover, genre and platform chip, title, one-sentence description, role chips. The long paragraph moves to the case study (where it already lives). Grid: 3 compact cards in one row on desktop (avoids an orphan card), 1 column on mobile.
@@ -66,7 +66,7 @@ A floating pill menu (fixed at top, icons plus labels) with the language switch 
 
 ## 6. Behavior (assets/site.js)
 
-Small vanilla JS file: highlight the menu item for the section in view, remember the chosen theme, toggle the "See more +" block. The site must remain fully readable and navigable with JS disabled (anchor links, `<details>` for the collapsible).
+Small vanilla JS file: highlight the menu item for the section in view, remember the chosen theme. The site must remain fully readable and navigable with JS disabled (anchor links).
 
 ## 7. Translation
 
@@ -75,7 +75,7 @@ English text is the source. Claude drafts the Portuguese naturally (not word for
 ## 8. Work order
 
 1. Base: fixed menu, new CSS, language switch, applied to the EN home.
-2. Full EN home (profile, cards, prototypes, About, Experience, Contact).
+2. Full EN home (profile, cards with earlier games, About, Experience, Contact).
 3. EN case studies with the shared menu.
 4. PT home and case studies, with translation for Karolina's review.
 5. Polish: accessibility, SEO tags, final check.

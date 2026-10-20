@@ -49,7 +49,7 @@ A floating pill menu (fixed at top, icons plus labels) with the language switch 
 
 | Menu item | Section | Content |
 |---|---|---|
-| Home | Profile | Photo, name, positioning line, 4 stats, buttons "View projects" and "Email" |
+| Home | Profile | Photo, name, positioning line, buttons "View projects" and "Email" (the 4-stat strip was removed by Karolina, 2026-10-20) |
 | Work | Selected work + Earlier games | Pet Shop Fever as one full-width featured card; the other 3 projects in a grid below; then an always-visible "Earlier games" strip (Playmove, 2015-2019, PC & Mobile) with its 5 thumbnails |
 | About | How I work + Narrative & impact | Four-step process and the narrative paragraph, merged into one block |
 | Experience | Experience | Timeline only |

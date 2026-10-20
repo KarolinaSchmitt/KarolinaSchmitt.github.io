@@ -199,6 +199,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--primary); outli
 .card {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   align-items: stretch;
   background: var(--surface);
   border: 1px solid var(--line);

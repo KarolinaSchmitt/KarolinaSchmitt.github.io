@@ -285,7 +285,6 @@ a.card:hover, a.card:focus-visible {
 :root[data-theme="dark"] .contact .btn-primary { color: #0c1120; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .contact .btn-primary { color: #0c1120; } }
 .contact .btn-ghost { background: transparent; color: var(--feature-ink); border-color: var(--feature-soft); }
-.contact .fine { margin-top: 2.2rem; font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; color: var(--feature-soft); letter-spacing: 0.04em; }
 
 /* ================= detail pages ================= */
 

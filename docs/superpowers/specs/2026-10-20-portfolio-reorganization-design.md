@@ -78,11 +78,11 @@ Template, in order:
 2. **Platform · style:** one line, e.g. "Mobile · Time management" (Playmove: "PC & Mobile · …").
 3. **My functions:** the role chips (existing `.detail-tags`).
 4. **Media:** the cover image (Pet Shop Fever also keeps its "In action" clips and gallery directly below). Images narrower than 800px are shown at natural size, not stretched (all covers and thumbnails are only 440px wide; better images or gameplay videos should replace them later).
-5. **Overview** (id `overview`), 6. **My role** (id `role`), 7. **Design challenges** (id `challenges`), 8. **Results** (id `results`), each an h2.
+5. **Overview** (id `overview`), 6. **My role** (id `role`), 7. **Challenges & solutions** (id `challenges`; renamed by Karolina, 2026-10-26), 8. **Results** (id `results`), each an h2.
 
-Content mapping (no invented content): Overview = first existing paragraph; My role = second existing paragraph (Pet Shop Fever: plus Narrative, Features I designed and Economy & progression as h3 subsections); the short sentence under the title (`.sub`) stays for the Tapps pages. The Playmove pages use their one existing sentence as Overview text and the existing role chips.
+Content mapping (no invented content): Overview = first existing paragraph; My role = second existing paragraph (the Pet Shop Fever Narrative / Features / Economy subsections were removed on 2026-10-26; their text is kept in git history); the short sentence under the title (`.sub`) stays for the Tapps pages. The Playmove pages use their one existing sentence as Overview text and the existing role chips.
 
-**Provisional text (Karolina's choice):** Design challenges and Results on all 9 pages, plus My role/extra Overview on the Playmove pages, hold clearly marked provisional blocks (`<div class="placeholder" data-placeholder>` with a visible "Provisional text" / "Texto provisório" badge and a dashed border). They contain instructions, never facts. `tools/check-site.ps1` counts them and prints a warning; `-Publish` makes the checker fail while any remain, so nothing is published unfilled by accident.
+**Provisional text (Karolina's choice):** Challenges & solutions and Results on all 9 pages, plus My role/extra Overview on the Playmove pages, hold clearly marked provisional blocks (`<div class="placeholder" data-placeholder>` with a visible "Provisional text" / "Texto provisório" badge and a dashed border). They contain instructions, never facts. `tools/check-site.ps1` counts them and prints a warning; `-Publish` makes the checker fail while any remain, so nothing is published unfilled by accident.
 
 "Next project" chain: Pet Shop Fever → Evolution Galaxy → Vlogger Go Viral → My Boo → Liga do Tempo → Color Shooter → Lab Boom → Divertron → Guardiões do Mundo → Pet Shop Fever. The contact block stays at the bottom.
 

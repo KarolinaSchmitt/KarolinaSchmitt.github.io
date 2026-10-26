@@ -78,7 +78,7 @@ Template, in order:
 2. **Platform · style:** one line, e.g. "Mobile · Time management" (Playmove: "PC & Mobile · …").
 3. **My functions:** the role chips (existing `.detail-tags`).
 4. **Media:** the cover image (Pet Shop Fever also keeps its "In action" clips and gallery directly below). Images narrower than 800px are shown at natural size, not stretched (all covers and thumbnails are only 440px wide; better images or gameplay videos should replace them later).
-5. **Overview** (id `overview`), 6. **My role** (id `role`), 7. **Challenges & solutions** (id `challenges`; renamed by Karolina, 2026-10-26), 8. **Results** (id `results`), each an h2.
+5. **Overview** (id `overview`), 6. **My contribution** (id `role`; renamed by Karolina, 2026-10-26), 7. **Challenges & solutions** (id `challenges`; renamed by Karolina, 2026-10-26), 8. **Results** (id `results`), each an h2.
 
 Content mapping (no invented content): Overview = first existing paragraph; My role = second existing paragraph (the Pet Shop Fever Narrative / Features / Economy subsections were removed on 2026-10-26; their text is kept in git history); the short sentence under the title (`.sub`) stays for the Tapps pages. The Playmove pages use their one existing sentence as Overview text and the existing role chips.
 

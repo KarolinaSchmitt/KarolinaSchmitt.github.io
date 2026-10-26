@@ -328,6 +328,7 @@ a.card:hover, a.card:focus-visible {
 .detail-section .facts > div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.25rem 1rem; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
 .detail-section .facts dt { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); padding-top: 0.25em; }
 .detail-section .facts dd { font-size: 1rem; color: var(--ink); }
+.detail-section .case h3 { font-size: 1.2rem; margin-top: 1.4rem; }
 @media (max-width: 480px) { .detail-section .facts > div { grid-template-columns: 6.8rem minmax(0, 1fr); gap: 0.25rem 0.75rem; } }
 
 /* contribution list (case-study pages) */

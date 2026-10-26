@@ -325,6 +325,11 @@ a.card:hover, a.card:focus-visible {
 .detail-section .lede { font-size: 1.05rem; color: var(--ink-soft); max-width: 68ch; margin-top: 0.9rem; }
 .detail-section .lede + .lede { margin-top: 0.9rem; }
 
+/* contribution list (case-study pages) */
+.detail-section .contrib { list-style: none; max-width: 68ch; margin-top: 1rem; display: grid; gap: 0.7rem; }
+.detail-section .contrib li { position: relative; padding-left: 1.5rem; font-size: 1.05rem; color: var(--ink-soft); }
+.detail-section .contrib li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--primary); }
+
 .feature-grid { margin-top: 1.6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
 .feature-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem 1.4rem; }
 .feature-card .k { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary-ink); }

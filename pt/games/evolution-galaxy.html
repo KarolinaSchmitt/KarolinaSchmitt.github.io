@@ -31,7 +31,7 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Tapps Games · Em operação</span>
+      <span class="eyebrow">Tapps Games</span>
       <h1>Evolution Galaxy: Mutant Merge</h1>
       <div class="detail-meta">Mobile · Merge / idle / coleção</div>
       <p class="sub">Um jogo de merge e coleção em que o jogador combina espécies para evoluir novas formas de vida e se expandir por planetas.</p>
@@ -54,28 +54,74 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Visão geral</h2>
-      <p class="lede">Evolution Galaxy é um jogo de merge e coleção em que o jogador combina espécies para evoluir novas formas de vida e se expandir por planetas, gastando vários recursos para acelerar o progresso.</p>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Tapps Games</dd></div>
+        <div><dt>Plataforma</dt><dd>Mobile (Android e iOS)</dd></div>
+        <div><dt>Gênero</dt><dd>Merge, idle e coleção</dd></div>
+        <div><dt>Time</dt><dd>Time de 5 pessoas: 2 programadores, 1 artista, 1 game designer e 1 QA</dd></div>
+        <div><dt>Ferramentas</dt><dd>LÖVE, ClickUp, Google Sheets, Miro, Figma, Firebase</dd></div>
+        <div><dt>Método</dt><dd>Scrum</dd></div>
+        <div><dt>Escala</dt><dd>1M+ de downloads</dd></div>
+      </dl>
+      <p class="lede">Entrei no Evolution Galaxy quando o jogo já estava no ar, como a única game designer de um time de cinco pessoas. Por ser um jogo mais antigo, a principal batalha era contra a queda natural de relevância nas lojas.</p>
+      <p class="lede">A meta do time era maximizar as métricas do jogo com o mínimo de recursos possível, com testes A/B orientados por dados e a migração da monetização de anúncios para compras dentro do app (IAP).</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
-      <p class="lede">Projeto e balanceio os sistemas que controlam o merge, os desbloqueios e as acelerações, e os sinks (desbloqueio de planetas, interações com divindades, aceleradores) que impedem a progressão de desmoronar conforme o jogador fica mais forte. Modelo a velocidade com que as coleções se completam para jogadores novos e de longo prazo e refaço o ritmo da curva sempre que chega conteúdo novo, mantendo o loop de merge como aquilo com que o jogador realmente se envolve.</p>
+      <ul class="contrib">
+        <li><span class="kw">Testes A/B</span>Conduzi testes A/B orientados por dados sobre o preço e a composição das ofertas, e sobre a frequência e o momento em que apareciam.</li>
+        <li><span class="kw">Design de monetização</span>Participei da migração da monetização do jogo de anúncios para compras dentro do app (IAP).</li>
+        <li><span class="kw">Economia e balanceamento</span>Balanceei a loja de IAP do jogo e criei novas ofertas.</li>
+        <li><span class="kw">Conteúdo promocional</span>Criei um sistema de conteúdo promocional fácil de otimizar e reutilizar.</li>
+        <li><span class="kw">Planilhas de balanceamento</span>Mantive as planilhas usadas para balancear o jogo.</li>
+      </ul>
     </div>
   </section>
 
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o principal desafio deste jogo e a solução que você criou.</p></div>
+      <div class="case">
+        <h3>Manter a relevância de um jogo antigo</h3>
+        <p class="lede">Em um jogo mais antigo, a visibilidade nas lojas cai naturalmente com o tempo, e o time era pequeno. O desafio era manter o jogo relevante com poucos recursos. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Mudanças pequenas e de alto impacto</span>Priorizar as mudanças capazes de mover as métricas com o menor custo para o time.</li>
+          <li><span class="kw">Sistemas reutilizáveis</span>Construir sistemas que pudessem ser otimizados e reaproveitados, em vez de refeitos a cada campanha.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Migrar de anúncios para compras dentro do app</h3>
+        <p class="lede">Mudar a forma como um jogo ganha dinheiro afeta toda a experiência. O desafio era aumentar a receita de IAP à medida que a monetização se afastava dos anúncios. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Uma loja equilibrada</span>Balancear a loja de IAP e criar novas ofertas.</li>
+          <li><span class="kw">Ofertas na hora certa</span>Testar o preço e a composição das ofertas, e a frequência e o momento em que aparecem.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Decidir com dados quando os recursos são limitados</h3>
+        <p class="lede">Com um time pequeno, cada mudança precisava valer a pena. As decisões eram guiadas por dados, em um ciclo de:</p>
+        <ul class="contrib">
+          <li><span class="kw">Testar</span>Comparar versões de uma oferta ou do seu momento de exibição em testes A/B.</li>
+          <li><span class="kw">Medir</span>Ler as métricas de cada versão antes de escolher qual manter.</li>
+          <li><span class="kw">Reaproveitar</span>Transformar o que funcionou em um sistema que pudesse ser aplicado de novo.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Resultados</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o que esse trabalho alcançou: métricas, retenção, receita ou feedback dos jogadores que você possa compartilhar.</p></div>
+      <p class="lede">Apesar da queda natural de relevância de um jogo mais antigo, as métricas do Evolution Galaxy se mantiveram estáveis durante o período de atuação no projeto.</p>
+      <ul class="contrib">
+        <li><span class="kw">Receita</span>A receita total cresceu 20% no período após o lançamento de uma oferta de IAP específica.</li>
+        <li><span class="kw">Mix de monetização</span>A participação do IAP na receita aumentou à medida que a monetização migrava de anúncios para compras.</li>
+        <li><span class="kw">Promoções reutilizáveis</span>O sistema de conteúdo promocional foi reutilizado muitas vezes em campanhas.</li>
+      </ul>
+      <p class="lede thesis">Em um jogo maduro, a relevância se conquista com passos pequenos e medidos e com ferramentas que podem ser reaproveitadas.</p>
     </div>
   </section>
 

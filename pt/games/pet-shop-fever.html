@@ -87,34 +87,31 @@
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
       <div class="case">
-        <h3>Conquistar o jogador nos primeiros minutos</h3>
-        <p class="lede">Um dos maiores desafios foi conquistar o jogador logo no início: o funil inicial perdia jogadores cedo, e eles não ficavam por muitas fases. Em um jogo de time management, o prazer está em encadear ações rápidas sob pressão, e esse ritmo estava se quebrando. Para resolver, focamos em:</p>
+        <h3>Equilibrar metas que puxam em direções diferentes</h3>
+        <p class="lede">Em um jogo free-to-play em operação, as metas do time mudavam com o tempo: reter jogadores, reduzir o churn, aumentar a monetização e atualizar o conteúdo. O desafio era atender a todas sem perder a experiência do jogador. Para isso, focamos em:</p>
         <ul class="contrib">
-          <li><span class="kw">Tempo morto</span>Com a personagem lenta, o jogador passava longos períodos sem agir, só esperando que ela fosse de um lado para o outro.</li>
-          <li><span class="kw">Mudança pontual</span>Alteramos uma única variável, a velocidade de movimento da personagem, e nada mais.</li>
-          <li><span class="kw">Decisão com dados</span>Comparamos os períodos antes e depois da mudança no Google Analytics.</li>
-          <li><span class="kw">Pressão como aliada</span>O churn do funil inicial caiu em torno de 30%, e vimos que o jogador suporta mais pressão e que isso favorece a permanência dele no jogo.</li>
+          <li><span class="kw">Experiência em primeiro lugar</span>Dificuldade, apoio ao jogador e ofertas eram desenhados para sustentar o jogo, e não para travá-lo.</li>
+          <li><span class="kw">Uma meta, uma hipótese</span>Cada meta do time virava uma hipótese de design a ser testada, e não uma decisão tomada por intuição.</li>
         </ul>
-        <p class="lede thesis">No time management, o recurso mais valioso é a atenção do jogador: cada segundo sem ação é um segundo em que o jogo pode perdê-lo.</p>
       </div>
       <div class="case">
-        <h3>Manter uma jornada longa justa e interessante</h3>
+        <h3>Decidir com evidências em um jogo vivo</h3>
+        <p class="lede">Um jogo em operação muda o tempo todo, e cada mudança pode ajudar ou atrapalhar. Para decidir com segurança, seguíamos um processo de testes:</p>
+        <ul class="contrib">
+          <li><span class="kw">Observar</span>Acompanhar as métricas do jogo era uma responsabilidade do game design. Eu acompanhava o desempenho em planilhas de acompanhamento e analisava os dados no Google Analytics e no Firebase, junto com os playtests.</li>
+          <li><span class="kw">Hipótese e mudança pontual</span>Eu propunha as hipóteses e alterava o mínimo de variáveis por vez, para entender o que causava cada efeito.</li>
+          <li><span class="kw">Medir</span>Comparávamos os períodos antes e depois de cada mudança, ou testávamos versões entre si em A/B.</li>
+          <li><span class="kw">Aprender e iterar</span>Cada resultado alimentava a decisão seguinte. Por exemplo, uma única mudança na velocidade da personagem reduziu em cerca de 30% o churn do funil inicial.</li>
+        </ul>
+        <p class="lede thesis">Em um jogo em operação, o design nunca é uma decisão única: é um ciclo de observar, testar e aprender.</p>
+      </div>
+      <div class="case">
+        <h3>Manter a experiência do jogador forte em uma progressão longa</h3>
         <p class="lede">Com mais de 800 fases, o desafio era a progressão inteira, e não cada fase isolada: o jogador deveria viver tensão, alívio, justiça e progresso ao longo de todo o caminho. Para isso, focamos em:</p>
         <ul class="contrib">
-          <li><span class="kw">Dificuldade como jornada</span>Desenhamos a curva de dificuldade ao longo da progressão, e não fase a fase.</li>
-          <li><span class="kw">Ajuda que faz parte do jogo</span>Boosters, vidas extras e Second Chance tinham um papel claro no gameplay, e não só na loja.</li>
-          <li><span class="kw">Ajuste na prática</span>Ajustei o tempo, a chegada de clientes, as metas das fases, o Second Chance e os boosters.</li>
-          <li><span class="kw">Economia e ofertas</span>Mapeei as fontes e os destinos das moedas de cada novo pet shop e moldei a loja e as ofertas contextuais, testadas em A/B para apoiarem o jogo sem virar uma barreira.</li>
-        </ul>
-      </div>
-      <div class="case">
-        <h3>Fazer um jogo em operação crescer sem quebrar o que já funciona</h3>
-        <p class="lede">As metas do time mudavam com o tempo (reter jogadores, reduzir o churn, aumentar a monetização e atualizar o conteúdo), e novos pet shops, eventos e coleções precisavam chegar sempre, sem quebrar o que já funcionava. Para isso, focamos em:</p>
-        <ul class="contrib">
-          <li><span class="kw">Conteúdo reaproveitável</span>Minigames que serviam tanto como features independentes quanto como conteúdo de evento.</li>
-          <li><span class="kw">Eventos temporários</span>Projetei tanto a estrutura quanto o conteúdo de cada evento.</li>
-          <li><span class="kw">Metas de longo prazo</span>Coleções de cartas e desafios diários davam ao jogador objetivos que viviam entre uma sessão e outra.</li>
-          <li><span class="kw">Decisões testadas</span>Mudanças e ofertas eram validadas com playtesting e testes A/B.</li>
+          <li><span class="kw">Dificuldade como jornada</span>Desenhamos a curva de dificuldade ao longo da progressão, e não fase a fase, e a testamos.</li>
+          <li><span class="kw">Variedade no caminho</span>Side loops e LiveOps davam à longa jornada novos objetivos e variedade.</li>
+          <li><span class="kw">Uma loja que não atrapalha</span>A loja e as ofertas foram moldadas, e testadas, para sustentar a jornada em vez de travá-la.</li>
         </ul>
       </div>
     </div>
@@ -125,10 +122,9 @@
       <h2>Resultados</h2>
       <ul class="contrib">
         <li><span class="kw">Escala</span>O jogo tem 1M+ de downloads e mais de 800 fases.</li>
-        <li><span class="kw">Funil inicial</span>O churn caiu em torno de 30% depois da mudança de velocidade da personagem.</li>
-        <li><span class="kw">Economia</span>Fontes e destinos das moedas mapeados para cada novo pet shop.</li>
-        <li><span class="kw">Eventos e minigames</span>Formatos de evento e de minigame reaproveitáveis, com estrutura e conteúdo desenhados.</li>
-        <li><span class="kw">Decisões com dados</span>Uma prática de testar ofertas e mudanças com experimentos A/B e comparar os dados.</li>
+        <li><span class="kw">Crescimento</span>Depois da remodelagem da loja, dos testes de dificuldade e da adição de side loops e LiveOps, o jogo cresceu.</li>
+        <li><span class="kw">Ganhos mensuráveis</span>O churn do funil inicial caiu em torno de 30%.</li>
+        <li><span class="kw">Uma operação guiada por dados</span>Planilhas de acompanhamento do desempenho e uma rotina de testar hipóteses guiavam as decisões do jogo.</li>
       </ul>
     </div>
   </section>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>Vlogger Go Viral: estudo de caso</title>
-<meta name="description" content="Um idle sobre fazer um canal de vídeos crescer, de um quarto improvisado a uma operação de mídia automatizada.">
+<meta name="description" content="Vlogger Go Viral: Tuber Life é um simulador idle free-to-play sobre construir uma carreira no YouTube. O jogador posta vídeos para ganhar views e inscritos e melhora o estúdio em casa.">
 <link rel="canonical" href="https://karolinaschmitt.github.io/pt/games/vlogger-go-viral.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,16 +31,17 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Tapps Games · Em operação</span>
+      <span class="eyebrow">Tapps Games</span>
       <h1>Vlogger Go Viral</h1>
       <div class="detail-meta">Mobile · Idle / simulação</div>
-      <p class="sub">Um idle sobre fazer um canal de vídeos crescer, de um quarto improvisado a uma operação de mídia automatizada.</p>
+      <p class="sub">Vlogger Go Viral: Tuber Life é um simulador idle free-to-play sobre construir uma carreira no YouTube. O jogador posta vídeos para ganhar views e inscritos, melhora o estúdio em casa com equipamentos melhores e personaliza o avatar com centenas de skins e acessórios. Missões e recompensas diárias, parcerias e momentos de PR, como entrevistas de revista e participações na TV, mantêm a evolução, até offline.</p>
       <div class="detail-tags">
         <span class="tag">Design de features</span>
         <span class="tag">Economia e balanceamento</span>
         <span class="tag">Design de progressão</span>
         <span class="tag">Design de monetização</span>
         <span class="tag">A/B testing</span>
+        <span class="tag">Design de LiveOps</span>
       </div>
     </div>
   </header>
@@ -54,28 +55,75 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Visão geral</h2>
-      <p class="lede">Vlogger Go Viral é um idle em que o jogador faz um canal de vídeos crescer: produzindo conteúdo, ganhando views e fãs, melhorando equipamentos e automatizando a produção.</p>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Tapps Games</dd></div>
+        <div><dt>Plataforma</dt><dd>Mobile (Android e iOS)</dd></div>
+        <div><dt>Gênero</dt><dd>Idle, simulação, free-to-play</dd></div>
+        <div><dt>Time</dt><dd>Time de 5 pessoas: 2 programadores, 1 artista, 1 game designer e 1 QA</dd></div>
+        <div><dt>Ferramentas</dt><dd>ClickUp, Google Sheets, Miro, Figma, Firebase</dd></div>
+        <div><dt>Método</dt><dd>Scrum</dd></div>
+        <div><dt>Escala</dt><dd>50M+ de downloads</dd></div>
+        <div><dt>Período</dt><dd>2022 a 2023</dd></div>
+      </dl>
+      <p class="lede">Entrei no Vlogger Go Viral quando o jogo já estava no ar, como a única game designer de um time de cinco pessoas. Em um jogo monetizado principalmente por anúncios, a principal batalha era contra a depreciação natural que os jogos sofrem nas lojas com o tempo.</p>
+      <p class="lede">A meta do time era retardar essa queda, com testes A/B orientados por dados sobre progressão e monetização e com eventos que atuavam diretamente na retenção.</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
-      <p class="lede">Ajusto as curvas exponenciais por trás de views, renda, custo de upgrades e prestígio, para que o crescimento seja rápido no começo e ainda faça sentido cem horas depois, e organizo o ritmo de conteúdo e de desbloqueio de temas em torno de sessões curtas e do tempo offline. Mudanças de features e de ritmo são validadas com A/B testing.</p>
+      <ul class="contrib">
+        <li><span class="kw">Testes A/B</span>Testei hipóteses sobre acelerar ou desacelerar a progressão do jogador, e features ligadas diretamente à monetização de anúncios do jogo.</li>
+        <li><span class="kw">Economia e balanceamento</span>Balanceei a economia por trás desses testes: moedas, views por segundo, custo de upgrades, tempo de produção de vídeos e progressão.</li>
+        <li><span class="kw">Design de features</span>Projetei features de qualidade de vida para os jogadores.</li>
+        <li><span class="kw">Design de LiveOps</span>Planejei a revitalização dos eventos sazonais, tornando-os mais engajantes e focados em retenção.</li>
+        <li><span class="kw">Design de monetização</span>Trabalhei na monetização por anúncios do jogo e remodelei a loja.</li>
+        <li><span class="kw">Conteúdo promocional</span>Produzi conteúdo promocional com o mesmo ferramental usado no Evolution Galaxy.</li>
+      </ul>
     </div>
   </section>
 
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o principal desafio deste jogo e a solução que você criou.</p></div>
+      <div class="case">
+        <h3>Retardar o declínio de um jogo maduro</h3>
+        <p class="lede">Com o tempo, a visibilidade nas lojas e o engajamento caem naturalmente, principalmente em jogos monetizados por anúncios. O desafio era frear esse efeito. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Retenção em primeiro lugar</span>Revitalizar os eventos sazonais para serem mais engajantes e atuarem diretamente na retenção.</li>
+          <li><span class="kw">Qualidade de vida no dia a dia</span>Projetar features que melhoravam a rotina do jogador dentro do jogo.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Monetizar por anúncios em um jogo de longa duração</h3>
+        <p class="lede">Em um jogo movido a anúncios, a monetização faz parte da própria experiência. O desafio era fazê-la crescer sem deixar de manter o jogo agradável. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Features ligadas a anúncios</span>Testar features que lidavam diretamente com a monetização por anúncios do jogo.</li>
+          <li><span class="kw">Uma loja remodelada</span>Remodelar a loja para que apoiasse a monetização do jogo.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Encontrar o ritmo certo de progressão</h3>
+        <p class="lede">A velocidade da progressão afeta a retenção e a monetização, e o ritmo certo não era óbvio. Em vez de decidir por intuição, o time trabalhava com hipóteses:</p>
+        <ul class="contrib">
+          <li><span class="kw">Hipótese</span>Propor se a progressão deveria acelerar ou desacelerar.</li>
+          <li><span class="kw">Balancear</span>Ajustar moedas, views por segundo, custo de upgrades e tempo de produção de vídeos para cada teste.</li>
+          <li><span class="kw">Testar e decidir</span>Comparar versões em testes A/B e escolher com base nos resultados.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Resultados</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o que esse trabalho alcançou: métricas, retenção, receita ou feedback dos jogadores que você possa compartilhar.</p></div>
+      <p class="lede">No período de atuação no projeto, o time conseguiu retardar os efeitos negativos da depreciação natural que os jogos voltados a anúncios sofrem nas lojas.</p>
+      <ul class="contrib">
+        <li><span class="kw">Declínio retardado</span>O jogo resistiu por mais tempo à perda natural de relevância nas lojas.</li>
+        <li><span class="kw">Decisões apoiadas em testes</span>As hipóteses de progressão e de monetização por anúncios foram validadas em testes A/B.</li>
+      </ul>
+      <p class="lede thesis">Em um jogo movido a anúncios, mudanças pequenas e testadas foram o que ganhou tempo.</p>
     </div>
   </section>
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>My Boo Case Study</title>
-<meta name="description" content="A long-running virtual-pet game with a daily care loop, mini-games, and seasonal events.">
+<meta name="description" content="My Boo is a free-to-play virtual pet game in which players care for their Boo every day and play adventure minigames to earn coins and unlock outfits.">
 <link rel="canonical" href="https://karolinaschmitt.github.io/games/my-boo.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,14 +31,14 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Tapps Games · Live</span>
+      <span class="eyebrow">Tapps Games</span>
       <h1>My Boo</h1>
       <div class="detail-meta">Mobile · Virtual pet / simulation</div>
-      <p class="sub">A long-running virtual-pet game with a daily care loop, mini-games, and seasonal events.</p>
+      <p class="sub">My Boo is a free-to-play virtual pet game in which players care for their Boo every day and play adventure minigames to earn coins. In the store, coins unlock outfits and accessories to customize the Boo, who can even dress up as a kitten, a dog and other animals.</p>
       <div class="detail-tags">
         <span class="tag">Feature design</span>
         <span class="tag">Economy &amp; balancing</span>
-        <span class="tag">Progression design</span>
+        <span class="tag">LiveOps design</span>
         <span class="tag">Monetization design</span>
         <span class="tag">A/B testing</span>
       </div>
@@ -54,28 +54,75 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Overview</h2>
-      <p class="lede">My Boo is a long-running virtual-pet game where players feed, clean, play with, and customize their Boo, with mini-games, daily challenges, and seasonal events.</p>
+      <dl class="facts">
+        <div><dt>Studio</dt><dd>Tapps Games</dd></div>
+        <div><dt>Platform</dt><dd>Mobile (Android and iOS)</dd></div>
+        <div><dt>Genre</dt><dd>Virtual pet, simulation, free-to-play</dd></div>
+        <div><dt>Team</dt><dd>Team of 5: 2 programmers, 1 artist, 1 game designer and 1 QA</dd></div>
+        <div><dt>Tools</dt><dd>LÖVE, ClickUp, Google Sheets, Miro, Figma, Firebase</dd></div>
+        <div><dt>Method</dt><dd>Scrum</dd></div>
+        <div><dt>Scale</dt><dd>500K+ downloads</dd></div>
+        <div><dt>Period</dt><dd>2022 to 2023</dd></div>
+      </dl>
+      <p class="lede">I joined My Boo when it was already live, as the only game designer in a five-person team. With more than ten years in the stores, the main fight was against the natural depreciation that games face over time.</p>
+      <p class="lede">The team's goal was to keep the game stable with few resources, through special LiveOps events, tests and the economy behind them.</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>My contributions</h2>
-      <p class="lede">I design the daily reward cycle that brings players back, pace the customization catalogue so there is always an aspirational next goal, and build seasonal and themed events into the LiveOps calendar. Mini-games and challenges are balanced as reward sources against the customization and upgrade sinks.</p>
+      <ul class="contrib">
+        <li><span class="kw">Minigames</span>I worked on the game's minigames.</li>
+        <li><span class="kw">Feature design</span>I designed a collection feature.</li>
+        <li><span class="kw">Economy &amp; balancing</span>I adjusted the game's economy together with the LiveOps events.</li>
+        <li><span class="kw">LiveOps design</span>I planned a calendar of special LiveOps events.</li>
+        <li><span class="kw">Monetization design</span>I ran tests with ads and planned events that encouraged use of the store.</li>
+        <li><span class="kw">A/B testing</span>I ran tests on the events calendar.</li>
+        <li><span class="kw">Promotional content</span>I produced promotional content with the same tooling used in Evolution Galaxy.</li>
+      </ul>
     </div>
   </section>
 
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Challenges &amp; solutions</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Describe here the main challenge on this game and the solution you designed.</p></div>
+      <div class="case">
+        <h3>Keeping a long-running game stable</h3>
+        <p class="lede">Over the years, store visibility and engagement fall naturally. The challenge was keeping the game stable with a small team. The focus was on:</p>
+        <ul class="contrib">
+          <li><span class="kw">A calendar of events</span>Planning special LiveOps events to keep players engaged through the year.</li>
+          <li><span class="kw">New things to do</span>Working on the minigames and designing a collection feature.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Connecting events, economy and store</h3>
+        <p class="lede">A special event only works if the economy and the store support it. The challenge was making these three parts work together. The focus was on:</p>
+        <ul class="contrib">
+          <li><span class="kw">Economy with events</span>Adjusting the economy together with the LiveOps events.</li>
+          <li><span class="kw">Events that bring players to the store</span>Planning events that encouraged use of the store.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Deciding with tests when resources are limited</h3>
+        <p class="lede">With few resources, each change had to be tested before being kept. The tests covered:</p>
+        <ul class="contrib">
+          <li><span class="kw">Ads</span>Running tests with ads.</li>
+          <li><span class="kw">Events calendar</span>Testing how the calendar of events was organized.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Results</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Describe here what this work achieved: metrics, retention, revenue or player feedback you can share.</p></div>
+      <p class="lede">During the period of work on the project, My Boo, a game with more than ten years in the stores, stayed stable despite the natural depreciation that games face over time.</p>
+      <ul class="contrib">
+        <li><span class="kw">A planned calendar</span>The game gained a calendar of special LiveOps events, connected to the economy and the store.</li>
+        <li><span class="kw">Decisions backed by tests</span>Tests on ads and on the events calendar guided the team's decisions.</li>
+      </ul>
+      <p class="lede thesis">In a long-running game, stability is built with a steady calendar and constant testing.</p>
     </div>
   </section>
 

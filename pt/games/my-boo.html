@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>My Boo: estudo de caso</title>
-<meta name="description" content="Um jogo de pet virtual de longa duração, com rotina diária de cuidados, minigames e eventos sazonais.">
+<meta name="description" content="My Boo é um jogo de pet virtual free-to-play em que o jogador cuida do seu Boo todos os dias e joga minijogos de aventura para ganhar moedas e liberar roupas.">
 <link rel="canonical" href="https://karolinaschmitt.github.io/pt/games/my-boo.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,14 +31,14 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Tapps Games · Em operação</span>
+      <span class="eyebrow">Tapps Games</span>
       <h1>My Boo</h1>
       <div class="detail-meta">Mobile · Pet virtual / simulação</div>
-      <p class="sub">Um jogo de pet virtual de longa duração, com rotina diária de cuidados, minigames e eventos sazonais.</p>
+      <p class="sub">My Boo é um jogo de pet virtual free-to-play em que o jogador cuida do seu Boo todos os dias e joga minijogos de aventura para ganhar moedas. Na loja, as moedas liberam roupas e acessórios para personalizar o Boo, que pode até se vestir de gatinho, cachorro e outros bichinhos.</p>
       <div class="detail-tags">
         <span class="tag">Design de features</span>
         <span class="tag">Economia e balanceamento</span>
-        <span class="tag">Design de progressão</span>
+        <span class="tag">Design de LiveOps</span>
         <span class="tag">Design de monetização</span>
         <span class="tag">A/B testing</span>
       </div>
@@ -54,28 +54,75 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Visão geral</h2>
-      <p class="lede">My Boo é um jogo de pet virtual de longa duração em que o jogador alimenta, limpa, brinca e customiza o seu Boo, com minigames, desafios diários e eventos sazonais.</p>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Tapps Games</dd></div>
+        <div><dt>Plataforma</dt><dd>Mobile (Android e iOS)</dd></div>
+        <div><dt>Gênero</dt><dd>Pet virtual, simulação, free-to-play</dd></div>
+        <div><dt>Time</dt><dd>Time de 5 pessoas: 2 programadores, 1 artista, 1 game designer e 1 QA</dd></div>
+        <div><dt>Ferramentas</dt><dd>LÖVE, ClickUp, Google Sheets, Miro, Figma, Firebase</dd></div>
+        <div><dt>Método</dt><dd>Scrum</dd></div>
+        <div><dt>Escala</dt><dd>500K+ de downloads</dd></div>
+        <div><dt>Período</dt><dd>2022 a 2023</dd></div>
+      </dl>
+      <p class="lede">Entrei no My Boo quando o jogo já estava no ar, como a única game designer de um time de cinco pessoas. Com mais de dez anos nas lojas, a principal batalha era contra a depreciação natural que os jogos sofrem com o tempo.</p>
+      <p class="lede">A meta do time era manter o jogo estável com poucos recursos, por meio de eventos especiais de LiveOps, testes e da economia que os sustentava.</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
-      <p class="lede">Projeto o ciclo diário de recompensas que traz o jogador de volta, organizo o ritmo do catálogo de customização para que sempre exista um próximo objetivo desejável, e incluo eventos sazonais e temáticos no calendário de LiveOps. Minigames e desafios são balanceados como fontes de recompensa em relação aos sinks de customização e upgrade.</p>
+      <ul class="contrib">
+        <li><span class="kw">Minigames</span>Trabalhei nos minigames do jogo.</li>
+        <li><span class="kw">Design de features</span>Projetei uma feature de coleção.</li>
+        <li><span class="kw">Economia e balanceamento</span>Ajustei a economia do jogo junto com os eventos de LiveOps.</li>
+        <li><span class="kw">Design de LiveOps</span>Planejei um calendário de eventos especiais de LiveOps.</li>
+        <li><span class="kw">Design de monetização</span>Fiz testes com anúncios e planejei eventos que incentivavam o uso da loja.</li>
+        <li><span class="kw">Testes A/B</span>Fiz testes sobre o calendário de eventos.</li>
+        <li><span class="kw">Conteúdo promocional</span>Produzi conteúdo promocional com o mesmo ferramental usado no Evolution Galaxy.</li>
+      </ul>
     </div>
   </section>
 
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o principal desafio deste jogo e a solução que você criou.</p></div>
+      <div class="case">
+        <h3>Manter a estabilidade de um jogo de longa duração</h3>
+        <p class="lede">Com os anos, a visibilidade nas lojas e o engajamento caem naturalmente. O desafio era manter o jogo estável com um time pequeno. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Um calendário de eventos</span>Planejar eventos especiais de LiveOps para manter os jogadores engajados ao longo do ano.</li>
+          <li><span class="kw">Novidades para jogar</span>Trabalhar nos minigames e projetar uma feature de coleção.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Conectar eventos, economia e loja</h3>
+        <p class="lede">Um evento especial só funciona se a economia e a loja o sustentam. O desafio era fazer essas três partes funcionarem juntas. O foco estava em:</p>
+        <ul class="contrib">
+          <li><span class="kw">Economia junto com os eventos</span>Ajustar a economia em conjunto com os eventos de LiveOps.</li>
+          <li><span class="kw">Eventos que levam o jogador à loja</span>Planejar eventos que incentivavam o uso da loja.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h3>Decidir com testes quando os recursos são limitados</h3>
+        <p class="lede">Com poucos recursos, cada mudança precisava ser testada antes de ser mantida. Os testes cobriram:</p>
+        <ul class="contrib">
+          <li><span class="kw">Anúncios</span>Fazer testes com anúncios.</li>
+          <li><span class="kw">Calendário de eventos</span>Testar como o calendário de eventos era organizado.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Resultados</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o que esse trabalho alcançou: métricas, retenção, receita ou feedback dos jogadores que você possa compartilhar.</p></div>
+      <p class="lede">No período de atuação no projeto, o My Boo, um jogo com mais de dez anos nas lojas, se manteve estável apesar da depreciação natural que os jogos sofrem com o tempo.</p>
+      <ul class="contrib">
+        <li><span class="kw">Um calendário planejado</span>O jogo ganhou um calendário de eventos especiais de LiveOps, conectado à economia e à loja.</li>
+        <li><span class="kw">Decisões apoiadas em testes</span>Testes com anúncios e com o calendário de eventos guiaram as decisões do time.</li>
+      </ul>
+      <p class="lede thesis">Em um jogo de longa duração, a estabilidade se constrói com um calendário constante e testes contínuos.</p>
     </div>
   </section>
 

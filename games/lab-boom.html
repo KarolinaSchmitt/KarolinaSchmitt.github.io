@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Lab Boom Case Study</title>
+<meta name="description" content="Four-player checkers-style game with four modes.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/games/lab-boom.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/lab-boom.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/lab-boom.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/lab-boom.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Main">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Work</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>About</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contact</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">EN</span>
+    <a class="lang" href="../pt/games/lab-boom.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    <button type="button" id="theme-toggle" aria-label="Dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Lab Boom</h1>
+      <div class="detail-meta">PlayTable · Checkers-inspired board game</div>
+      <p class="sub">Lab Boom is a checkers-inspired board game for ages 7 and up, on the PlayTable, Playmove's interactive table. Up to four of a witch's helper cats place magic potions on the board, and whoever ends up with two potions of their color on adjacent squares is eliminated. The same rule drives five game modes, each one exercising a different skill: reasoning, memory, adapting to luck and teamwork.</p>
+      <div class="detail-tags">
+        <span class="tag">Game design</span>
+        <span class="tag">Balancing</span>
+        <span class="tag">AI design</span>
+        <span class="tag">Onboarding &amp; feedback</span>
+        <span class="tag">Playtesting</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <img src="../assets/thumbs/lab-boom.jpg" alt="Lab Boom">
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Overview</h2>
+      <dl class="facts">
+        <div><dt>Studio</dt><dd>Playmove</dd></div>
+        <div><dt>Platform</dt><dd>PlayTable (interactive table for up to 4 players)</dd></div>
+        <div><dt>Genre</dt><dd>Checkers-inspired board game</dd></div>
+        <div><dt>Team</dt><dd>Team of 3: 1 game designer, 1 artist and 1 programmer</dd></div>
+        <div><dt>Tools</dt><dd>Unity, paper prototyping, Google Sheets, Google Docs</dd></div>
+        <div><dt>Period</dt><dd>2018</dd></div>
+      </dl>
+      <p class="lede">I joined Lab Boom in the production phase, taking over from the game designer who created the concept. My role was to carry the original idea through to a finished game. The game is still available today.</p>
+      <p class="lede">The base rule is simple: on each turn, a player places a potion on the board, and anyone who ends up with two potions of their color on adjacent squares is eliminated. The last one standing wins. The five modes vary this rule:</p>
+      <ul class="contrib">
+        <li><span class="kw">Normal</span>The base rule, which exercises reasoning.</li>
+        <li><span class="kw">Blackout</span>Once placed, a potion's color is no longer visible, so memory comes into play on top of reasoning.</li>
+        <li><span class="kw">Chaos Die</span>Each player rolls a die on their turn, and the number rolled is how many potions they place, adding a touch of luck.</li>
+        <li><span class="kw">Pass by Pass</span>On their turn, a player chooses between placing a potion or trying their luck with a card, which can skip the turn or force them to place more potions than expected.</li>
+        <li><span class="kw">All for All</span>A cooperative mode: the players work as a team so nobody is eliminated over five rounds, and each cat rolls the die to find out how many potions to place.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>My contributions</h2>
+      <ul class="contrib">
+        <li><span class="kw">Taking over a concept</span>I took the project over in production and made sure the original idea was implemented correctly and kept its intent through development.</li>
+        <li><span class="kw">AI behavior</span>I defined how the machine plays as an opponent.</li>
+        <li><span class="kw">Tutorials and feedback</span>I defined the tutorials and the feedback that teach the rules and communicate what happens on the board.</li>
+        <li><span class="kw">Balancing</span>I balanced the difficulty through the dice, the size of the board and the cards.</li>
+        <li><span class="kw">Playtesting</span>I made sure the playtests happened and that the changes they pointed to were applied.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Challenges &amp; solutions</h2>
+      <div class="case">
+        <h3>One core mechanic, five modes</h3>
+        <p class="lede">The main challenge of the game was getting several modes out of a single mechanic. The solution was to keep the base rule fixed and vary one element at a time: information, with colors hidden in Blackout; chance, with the die in Chaos Die; risk and choice, with the cards in Pass by Pass; and the goal itself, with cooperation in All for All. Players learn one rule and then find in each mode a different skill to exercise, from logic to memory to teamwork.</p>
+      </div>
+      <div class="case">
+        <h3>Balancing difficulty without an economy</h3>
+        <p class="lede">In this game balancing has nothing to do with an economy: the levers are the dice, the size of the board and the cards. They control how quickly the board fills up and how likely it is for someone to be eliminated, so each mode needed its own calibration. In the cooperative mode, where the goal is to survive five rounds, these same levers directly define how hard it is to win.</p>
+      </div>
+      <div class="case">
+        <h3>Continuing someone else's concept</h3>
+        <p class="lede">Joining a project with the concept already defined meant respecting the original idea while making sure it worked in practice. This is where playtests did their part: they showed what needed to change, and the modifications were applied on top of the existing concept.</p>
+      </div>
+      <div class="case">
+        <h3>Teaching five variations of one game</h3>
+        <p class="lede">With modes that share a base rule and differ in a single detail, the tutorials and feedback had to make clear what changes in each one, and the machine opponent had to know how to play every mode. Both were designed so that the rule learned in one mode carried over to the next.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Results</h2>
+      <p class="lede">Lab Boom was a successful game, especially in the entertainment segment. It remains available on the PlayTable today.</p>
+      <p class="lede thesis">In this game, one rule became five ways to play.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Next project</div>
+      <a class="big" href="divertron.html"><h2>Divertron</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Let's <span class="u">talk</span>.</h2>
+      <p>Pull up a chair and tell me what you're building.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

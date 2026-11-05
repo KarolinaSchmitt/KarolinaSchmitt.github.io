@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Lab Boom: estudo de caso</title>
+<meta name="description" content="Jogo de damas para quatro jogadores, com quatro modos.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/pt/games/lab-boom.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/lab-boom.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/lab-boom.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/lab-boom.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Principal">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Início</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Projetos</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Sobre</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contato</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">PT</span>
+    <a class="lang" href="../../games/lab-boom.html" hreflang="en" lang="en">EN</a>
+    <button type="button" id="theme-toggle" aria-label="Tema escuro" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Lab Boom</h1>
+      <div class="detail-meta">PlayTable · Jogo de tabuleiro inspirado em damas</div>
+      <p class="sub">Lab Boom é um jogo de tabuleiro inspirado em damas para jogadores a partir de 7 anos, na PlayTable, a mesa interativa da Playmove. Até quatro gatos ajudantes de uma bruxa posicionam poções mágicas no tabuleiro, e quem ficar com duas poções da sua cor em casas adjacentes é eliminado. A mesma regra sustenta cinco modos de jogo, cada um exercitando uma habilidade diferente: raciocínio, memória, adaptação à sorte e trabalho em equipe.</p>
+      <div class="detail-tags">
+        <span class="tag">Game design</span>
+        <span class="tag">Balanceamento</span>
+        <span class="tag">Design de IA</span>
+        <span class="tag">Onboarding e feedback</span>
+        <span class="tag">Playtesting</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <img src="../../assets/thumbs/lab-boom.jpg" alt="Lab Boom">
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Visão geral</h2>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Playmove</dd></div>
+        <div><dt>Plataforma</dt><dd>PlayTable (mesa interativa para até 4 jogadores)</dd></div>
+        <div><dt>Gênero</dt><dd>Jogo de tabuleiro inspirado em damas</dd></div>
+        <div><dt>Time</dt><dd>Time de 3 pessoas: 1 game designer, 1 artista e 1 programador</dd></div>
+        <div><dt>Ferramentas</dt><dd>Unity, prototipação em papel, Google Sheets, Google Docs</dd></div>
+        <div><dt>Período</dt><dd>2018</dd></div>
+      </dl>
+      <p class="lede">Entrei no Lab Boom na fase de produção, assumindo o lugar do game designer que criou o conceito. Meu papel foi conduzir a ideia original até um jogo finalizado. O jogo continua disponível até hoje.</p>
+      <p class="lede">A regra base é simples: a cada turno, o jogador posiciona uma poção no tabuleiro, e quem ficar com duas poções da sua cor em casas adjacentes é eliminado. Vence o último que sobrar. Os cinco modos variam essa regra:</p>
+      <ul class="contrib">
+        <li><span class="kw">Normal</span>A regra base, que exercita o raciocínio.</li>
+        <li><span class="kw">Blackout</span>Depois de posicionada, a cor da poção deixa de ficar evidente, então a memória entra em jogo além do raciocínio.</li>
+        <li><span class="kw">Dado do Caos</span>Cada jogador rola um dado na sua vez, e o número sorteado é a quantidade de poções que ele posiciona, o que acrescenta uma pitada de sorte.</li>
+        <li><span class="kw">Passa a Passa</span>Na sua vez, o jogador escolhe entre posicionar uma poção ou arriscar uma carta, que pode fazê-lo pular a vez ou obrigá-lo a posicionar mais poções do que o esperado.</li>
+        <li><span class="kw">Todos por Todos</span>Um modo cooperativo: os jogadores trabalham em equipe para que ninguém seja eliminado ao longo de cinco rodadas, e cada gato rola o dado para saber quantas poções deve posicionar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>Minhas contribuições</h2>
+      <ul class="contrib">
+        <li><span class="kw">Assumir um conceito</span>Assumi o projeto na produção e garanti que a ideia original fosse implementada corretamente e mantivesse sua intenção ao longo do desenvolvimento.</li>
+        <li><span class="kw">Comportamento da IA</span>Defini como a máquina joga como adversária.</li>
+        <li><span class="kw">Tutoriais e feedbacks</span>Defini os tutoriais e os feedbacks que ensinam as regras e comunicam o que acontece no tabuleiro.</li>
+        <li><span class="kw">Balanceamento</span>Balanceei a dificuldade por meio dos dados, do tamanho do tabuleiro e das cartas.</li>
+        <li><span class="kw">Playtesting</span>Garanti que os playtestes acontecessem e que as modificações apontadas por eles fossem aplicadas.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Desafios e soluções</h2>
+      <div class="case">
+        <h3>Uma mecânica central, cinco modos</h3>
+        <p class="lede">O principal desafio do jogo foi extrair vários modos de uma única mecânica. A solução foi manter a regra base fixa e variar um elemento por vez: a informação, com as cores escondidas no Blackout; o acaso, com o dado no Dado do Caos; o risco e a escolha, com as cartas no Passa a Passa; e o próprio objetivo, com a cooperação no Todos por Todos. O jogador aprende uma regra e encontra, em cada modo, uma habilidade diferente a exercitar, do raciocínio à memória e ao trabalho em equipe.</p>
+      </div>
+      <div class="case">
+        <h3>Balancear a dificuldade sem uma economia</h3>
+        <p class="lede">Neste jogo o balanceamento não envolve economia: as alavancas são os dados, o tamanho do tabuleiro e as cartas. Elas controlam a rapidez com que o tabuleiro se enche e a chance de alguém ser eliminado, então cada modo precisou da sua própria calibração. No modo cooperativo, em que o objetivo é sobreviver a cinco rodadas, essas mesmas alavancas definem diretamente a dificuldade de vencer.</p>
+      </div>
+      <div class="case">
+        <h3>Dar continuidade ao conceito de outra pessoa</h3>
+        <p class="lede">Entrar em um projeto com o conceito já definido exigia respeitar a ideia original e, ao mesmo tempo, garantir que ela funcionasse na prática. Os playtestes fizeram esse papel: mostraram o que precisava mudar, e as modificações foram aplicadas sobre o conceito existente.</p>
+      </div>
+      <div class="case">
+        <h3>Ensinar cinco variações de um mesmo jogo</h3>
+        <p class="lede">Com modos que compartilham a regra base e diferem em um único detalhe, os tutoriais e os feedbacks precisavam deixar claro o que muda em cada um, e a máquina precisava saber jogar todos os modos. Ambos foram projetados para que a regra aprendida em um modo valesse no seguinte.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Resultados</h2>
+      <p class="lede">O Lab Boom foi um jogo de sucesso, principalmente no segmento de entretenimento. Ele continua disponível na PlayTable até hoje.</p>
+      <p class="lede thesis">Neste jogo, uma regra virou cinco formas de jogar.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Próximo projeto</div>
+      <a class="big" href="divertron.html"><h2>Divertron</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Vamos <span class="u">conversar</span>.</h2>
+      <p>Puxe uma cadeira e me conte o que você está construindo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Guardiões do Mundo Case Study</title>
+<meta name="description" content="Challenge-mode level design, 20 levels.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/games/guardioes-do-mundo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/guardioes-do-mundo.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/guardioes-do-mundo.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/guardioes-do-mundo.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Main">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Work</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>About</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contact</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">EN</span>
+    <a class="lang" href="../pt/games/guardioes-do-mundo.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    <button type="button" id="theme-toggle" aria-label="Dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Guardiões do Mundo</h1>
+      <div class="detail-meta">PlayTable · Card game · Challenge mode</div>
+      <p class="sub">Guardiões do Mundo is a digital card game for ages 9 and up, on the PlayTable, Playmove's interactive table. Characters from Brazilian folklore compete for control of a board by playing Brazilian state cards on squares that represent attributes such as territorial extension, number of municipalities and maximum altitude. I designed its challenge mode: 20 progressively harder quick matches against the AI.</p>
+      <div class="detail-tags">
+        <span class="tag">Level design</span>
+        <span class="tag">Challenge design</span>
+        <span class="tag">AI design</span>
+        <span class="tag">Difficulty progression</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <img src="../assets/thumbs/guardioes-do-mundo.jpg" alt="Guardiões do Mundo">
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Overview</h2>
+      <dl class="facts">
+        <div><dt>Studio</dt><dd>Playmove</dd></div>
+        <div><dt>Platform</dt><dd>PlayTable (interactive table for up to 4 players)</dd></div>
+        <div><dt>Genre</dt><dd>Digital educational card game</dd></div>
+        <div><dt>Team</dt><dd>Team of 3: 1 game designer, 1 artist and 1 programmer</dd></div>
+        <div><dt>Tools</dt><dd>Unity, paper prototyping, Google Sheets, Google Docs</dd></div>
+        <div><dt>Period</dt><dd>2015</dd></div>
+      </dl>
+      <p class="lede">My work on Guardiões do Mundo focused on the challenge mode. The game is still available today.</p>
+      <p class="lede">Guardiões do Mundo is a card game about Brazilian states. Four characters from Brazilian folklore (Saci, Iara, Curupira and Boitatá) compete to control a board by playing state cards. A match works like this:</p>
+      <ul class="contrib">
+        <li><span class="kw">The board</span>Each square is worth points and stands for one attribute: territorial extension, number of municipalities or maximum altitude. More squares are revealed every round.</li>
+        <li><span class="kw">Playing a card</span>On their turn, a player places one of their state cards on a square, and the state's value for that attribute is what counts.</li>
+        <li><span class="kw">Battles</span>Instead of taking a free square, the next player can play a card over a rival's card. The two cards are compared on that square's attribute: the winner keeps the square and the loser is eliminated.</li>
+        <li><span class="kw">The decider</span>A decider defines who wins a battle: the greater value or the lesser one. Say São Paulo is played over Roraima on a municipality square. If the greater wins, São Paulo takes the square and Roraima is eliminated. If the lesser wins, Roraima stays and São Paulo is eliminated.</li>
+        <li><span class="kw">Winning</span>At the end of each round, the points of the squares each player controls are counted. After three rounds, whoever has scored the most wins.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>My contributions</h2>
+      <ul class="contrib">
+        <li><span class="kw">Challenge mode concept</span>I designed the challenge mode as a short format built on the rules of the main game: a quick match against the AI in which the player has only three cards in hand and needs to win with them.</li>
+        <li><span class="kw">Level design</span>I designed the 20 challenges in progressive order of difficulty, so each one asks the player for a little more than the one before.</li>
+        <li><span class="kw">Difficulty curve</span>I shaped the difficulty of each challenge through the cards the player holds and the way the AI responds, keeping the progression steady from the first challenge to the last.</li>
+        <li><span class="kw">AI behavior</span>I defined how the AI decides what to play: a combination of rules that reads the actions already made on the board and chooses the card and the square from them.</li>
+        <li><span class="kw">Anticipating the player</span>I adjusted the AI's decisions to how the player could react in each challenge, so the opponent felt coherent and the difficulty felt fair.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Challenges &amp; solutions</h2>
+      <div class="case">
+        <h3>Twenty challenges that get progressively harder</h3>
+        <p class="lede">The hardest design decision of the mode was building 20 challenges with a steady difficulty curve. With only three cards in hand, every match became a short problem to solve, so difficulty could be shaped by the cards the player has and by how the AI responds, instead of by the length of the match.</p>
+      </div>
+      <div class="case">
+        <h3>An AI that reacts to the board</h3>
+        <p class="lede">For each challenge to feel like a real opponent, the AI could not follow a fixed script. Its choices depend on what has been played on the board, through a combination of rules that decides which card to use and where. The rules were adjusted to how a player could react, so that each challenge asked for a different decision.</p>
+      </div>
+      <div class="case">
+        <h3>Turning a full match into a quick one</h3>
+        <p class="lede">The main game is a match of several turns, and the challenge mode needed a shorter version with its own goal. Limiting the hand to three cards compressed the decisions of a whole match into a few plays, while keeping the rules the player already knows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Results</h2>
+      <p class="lede">The game was very well received in schools, since it covers a subject of the school curriculum that the platform did not yet address, and also for the versatility of its game modes. It remains available on the PlayTable today.</p>
+      <p class="lede thesis">In this mode, every challenge was designed to be harder than the last, and to be answered by an opponent that reads the board.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Next project</div>
+      <a class="big" href="pet-shop-fever.html"><h2>Pet Shop Fever</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Let's <span class="u">talk</span>.</h2>
+      <p>Pull up a chair and tell me what you're building.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

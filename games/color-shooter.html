@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Color Shooter Case Study</title>
+<meta name="description" content="Co-op motor-skills game, 30 levels.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/games/color-shooter.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/color-shooter.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/color-shooter.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/color-shooter.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Main">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Work</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>About</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contact</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">EN</span>
+    <a class="lang" href="../pt/games/color-shooter.html" hreflang="pt-BR" lang="pt-BR">PT</a>
+    <button type="button" id="theme-toggle" aria-label="Dark theme" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Color Shooter</h1>
+      <div class="detail-meta">PlayTable · Cooperative fine motor skills game</div>
+      <p class="sub">Color Shooter is a cooperative fine motor skills game for ages 4 and up, on the PlayTable, Playmove's interactive table. Up to four players each command a ship that can only hit targets of its own color, so they have to coordinate to clear the board. Across 30 levels, the team or player that eliminates every target in the least time tops the scoreboard.</p>
+      <div class="detail-tags">
+        <span class="tag">Game design</span>
+        <span class="tag">Feature design</span>
+        <span class="tag">Level design</span>
+        <span class="tag">Cooperative design</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/uTQ3Y6tFwec" title="Color Shooter gameplay video" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-link"><a class="btn btn-ghost" href="https://www.youtube.com/watch?v=uTQ3Y6tFwec" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Watch on YouTube</a></p>
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Overview</h2>
+      <dl class="facts">
+        <div><dt>Studio</dt><dd>Playmove</dd></div>
+        <div><dt>Platform</dt><dd>PlayTable (interactive table for up to 4 players)</dd></div>
+        <div><dt>Genre</dt><dd>Cooperative fine motor skills game</dd></div>
+        <div><dt>Team</dt><dd>Team of 3: 1 game designer, 1 artist and 1 programmer</dd></div>
+        <div><dt>Tools</dt><dd>Unity, paper prototyping, Google Sheets, Google Docs</dd></div>
+        <div><dt>Period</dt><dd>2017</dd></div>
+      </dl>
+      <p class="lede">I took part in every stage of Color Shooter, as the only game designer in a team of three. The game is still available today.</p>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>My contributions</h2>
+      <ul class="contrib">
+        <li><span class="kw">Concept and core mechanic</span>I conceived the game and defined its core loop: each ship can only eliminate targets of its own color, and a wrong shot regenerates the targets, turning every mistake into a cost for the whole group.</li>
+        <li><span class="kw">Cooperative design</span>I designed the interdependence for up to four players, each commanding one ship, so that no one can clear the board alone and the table has to coordinate who hits what, and when.</li>
+        <li><span class="kw">Scoring and competition</span>I defined the scoring around time, so the game works both for teams and for individual players: whoever eliminates every target the fastest tops the scoreboard.</li>
+        <li><span class="kw">Level design</span>I designed the 30 levels in increasing order of difficulty, deciding in which level each new mechanic and obstacle enters, so that every stretch of the game brings something new to learn.</li>
+        <li><span class="kw">Mechanic variation</span>I built new challenges by reworking existing mechanics instead of creating new ones, as with the armored obstacles, whose rules changed as the levels advanced.</li>
+        <li><span class="kw">Design within budget</span>I made design decisions with development cost in mind, favoring solutions that reuse assets and systems already built and that need few iterations to become a new challenge.</li>
+        <li><span class="kw">Audience and fine motor skills</span>I designed the interactions for the PlayTable around fine motor skills and for players aged 4 and up.</li>
+        <li><span class="kw">End to end</span>I took part in every stage of development, from concept to the finished levels, working with an artist and a programmer.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Challenges &amp; solutions</h2>
+      <div class="case">
+        <h3>Cooperation built into the core mechanic</h3>
+        <p class="lede">Putting four players at the same table does not make a game cooperative if each one can play alone. The decision was to tie each ship to a color: no player can clear the board on their own, so the group depends on each other to hit the right targets. A wrong shot regenerates the targets, which means speed only pays off when paired with coordination.</p>
+      </div>
+      <div class="case">
+        <h3>A 30-level sequence that does not feel repetitive</h3>
+        <p class="lede">With a single core mechanic, thirty levels can easily feel like the same level repeated. The difficulty rises gradually, but the main lever of the sequence was the order in which mechanics are introduced: each new element changes how players have to coordinate, which keeps the progression fresh without breaking the rules already learned.</p>
+      </div>
+      <div class="case">
+        <h3>Budget as a design constraint</h3>
+        <p class="lede">New mechanics cost development time and budget, so the design started from reusing what already existed in different ways. Armored obstacles show the process: first they were simply armored; then armored only for certain players; and later armored obstacles that can only be eliminated with shots in the right order. Each version reuses the same principle, and with few iterations the challenge it creates for the players is a different one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Results</h2>
+      <p class="lede">Color Shooter performed very well, especially within the platform's children's entertainment and education segment. The game remains available on the PlayTable today.</p>
+      <p class="lede thesis">In this game, a single mechanic, reworked with care, was enough to carry 30 levels.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Next project</div>
+      <a class="big" href="lab-boom.html"><h2>Lab Boom</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Let's <span class="u">talk</span>.</h2>
+      <p>Pull up a chair and tell me what you're building.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Guardiões do Mundo: estudo de caso</title>
+<meta name="description" content="Level design do modo desafio, 20 fases.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/pt/games/guardioes-do-mundo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/guardioes-do-mundo.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/guardioes-do-mundo.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/guardioes-do-mundo.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Principal">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Início</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Projetos</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Sobre</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contato</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">PT</span>
+    <a class="lang" href="../../games/guardioes-do-mundo.html" hreflang="en" lang="en">EN</a>
+    <button type="button" id="theme-toggle" aria-label="Tema escuro" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Guardiões do Mundo</h1>
+      <div class="detail-meta">PlayTable · Jogo de cartas · Modo desafio</div>
+      <p class="sub">Guardiões do Mundo é um jogo de cartas digital para jogadores a partir de 9 anos, na PlayTable, a mesa interativa da Playmove. Personagens do folclore brasileiro disputam o controle de um tabuleiro jogando cartas de estados brasileiros em casas que representam atributos como extensão territorial, quantidade de municípios e altitude máxima. Projetei o modo desafio: 20 partidas rápidas contra a IA, cada vez mais difíceis.</p>
+      <div class="detail-tags">
+        <span class="tag">Level design</span>
+        <span class="tag">Design de desafios</span>
+        <span class="tag">Design de IA</span>
+        <span class="tag">Progressão de dificuldade</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <img src="../../assets/thumbs/guardioes-do-mundo.jpg" alt="Guardiões do Mundo">
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Visão geral</h2>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Playmove</dd></div>
+        <div><dt>Plataforma</dt><dd>PlayTable (mesa interativa para até 4 jogadores)</dd></div>
+        <div><dt>Gênero</dt><dd>Jogo de cartas digital educativo</dd></div>
+        <div><dt>Time</dt><dd>Time de 3 pessoas: 1 game designer, 1 artista e 1 programador</dd></div>
+        <div><dt>Ferramentas</dt><dd>Unity, prototipação em papel, Google Sheets, Google Docs</dd></div>
+        <div><dt>Período</dt><dd>2015</dd></div>
+      </dl>
+      <p class="lede">Meu trabalho no Guardiões do Mundo foi focado no modo desafio. O jogo continua disponível até hoje.</p>
+      <p class="lede">Guardiões do Mundo é um jogo de cartas sobre os estados brasileiros. Quatro personagens do folclore brasileiro (Saci, Iara, Curupira e Boitatá) disputam o controle de um tabuleiro jogando cartas de estados. Uma partida funciona assim:</p>
+      <ul class="contrib">
+        <li><span class="kw">O tabuleiro</span>Cada casa vale pontos e representa um atributo: extensão territorial, quantidade de municípios ou altitude máxima. Mais casas são reveladas a cada rodada.</li>
+        <li><span class="kw">Jogar uma carta</span>Na sua vez, o jogador coloca uma de suas cartas de estado em uma casa, e o que vale é o valor do estado naquele atributo.</li>
+        <li><span class="kw">Batalhas</span>Em vez de tomar uma casa livre, o próximo jogador pode jogar uma carta sobre a de um adversário. As duas cartas são comparadas no atributo daquela casa: quem vence fica com a casa e a perdedora é eliminada.</li>
+        <li><span class="kw">O decisor</span>Um decisor define quem vence a batalha: o maior valor ou o menor. Por exemplo, São Paulo é jogado sobre Roraima em uma casa de municípios. Se vence o maior, São Paulo ocupa a casa e Roraima é eliminada. Se vence o menor, Roraima permanece e São Paulo é eliminado.</li>
+        <li><span class="kw">Vitória</span>Ao final de cada rodada, os pontos das casas que cada jogador domina são contados. Depois de três rodadas, vence quem tiver pontuado mais.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>Minhas contribuições</h2>
+      <ul class="contrib">
+        <li><span class="kw">Conceito do modo desafio</span>Projetei o modo desafio como um formato curto construído sobre as regras do jogo principal: uma partida rápida contra a IA em que o jogador tem apenas três cartas na mão e precisa vencer com elas.</li>
+        <li><span class="kw">Level design</span>Projetei os 20 desafios em ordem progressiva de dificuldade, de modo que cada um exija do jogador um pouco mais que o anterior.</li>
+        <li><span class="kw">Curva de dificuldade</span>Moldei a dificuldade de cada desafio por meio das cartas que o jogador tem e da forma como a IA responde, mantendo a progressão constante do primeiro ao último desafio.</li>
+        <li><span class="kw">Comportamento da IA</span>Defini como a IA decide o que jogar: uma combinação de regras que lê as ações já feitas no tabuleiro e escolhe, a partir delas, a carta e a casa.</li>
+        <li><span class="kw">Antecipar o jogador</span>Ajustei as decisões da IA de acordo com a forma como o jogador poderia reagir em cada desafio, para que o adversário parecesse coerente e a dificuldade justa.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Desafios e soluções</h2>
+      <div class="case">
+        <h3>Vinte desafios progressivamente mais difíceis</h3>
+        <p class="lede">A decisão de design mais difícil do modo foi construir 20 desafios com uma curva de dificuldade constante. Com apenas três cartas na mão, cada partida virava um problema curto a resolver, então a dificuldade podia ser moldada pelas cartas que o jogador tem e pela resposta da IA, e não pela duração da partida.</p>
+      </div>
+      <div class="case">
+        <h3>Uma IA que reage ao tabuleiro</h3>
+        <p class="lede">Para que cada desafio parecesse um adversário de verdade, a IA não podia seguir um roteiro fixo. Suas escolhas dependem do que foi jogado no tabuleiro, por meio de uma combinação de regras que decide qual carta usar e onde. As regras foram ajustadas à forma como o jogador poderia reagir, para que cada desafio exigisse uma decisão diferente.</p>
+      </div>
+      <div class="case">
+        <h3>Transformar uma partida completa em uma partida rápida</h3>
+        <p class="lede">O jogo principal é uma partida de vários turnos, e o modo desafio precisava de uma versão mais curta, com objetivo próprio. Limitar a mão a três cartas condensou as decisões de uma partida inteira em poucas jogadas, mantendo as regras que o jogador já conhece.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Resultados</h2>
+      <p class="lede">O jogo teve uma ótima aceitação nas escolas, por tratar de um assunto da grade curricular que a plataforma ainda não cobria e também pela versatilidade dos seus modos de jogo. Ele continua disponível na PlayTable até hoje.</p>
+      <p class="lede thesis">Neste modo, cada desafio foi projetado para ser mais difícil que o anterior e para ser respondido por um adversário que lê o tabuleiro.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Próximo projeto</div>
+      <a class="big" href="pet-shop-fever.html"><h2>Pet Shop Fever</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Vamos <span class="u">conversar</span>.</h2>
+      <p>Puxe uma cadeira e me conte o que você está construindo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+<title>Divertron: estudo de caso</title>
+<meta name="description" content="Adaptação de jogos de tabuleiro clássicos para touch.">
+<link rel="canonical" href="https://karolinaschmitt.github.io/pt/games/divertron.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..48,600;12..48,700;12..48,800&family=Hanken+Grotesk:wght@400;450;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="alternate" hreflang="en" href="https://karolinaschmitt.github.io/games/divertron.html">
+<link rel="alternate" hreflang="pt-BR" href="https://karolinaschmitt.github.io/pt/games/divertron.html">
+<link rel="alternate" hreflang="x-default" href="https://karolinaschmitt.github.io/games/divertron.html">
+</head>
+<body>
+<div class="doc">
+
+  <nav class="menu" aria-label="Principal">
+    <a href="../index.html#home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span>Início</span></a>
+    <a href="../index.html#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/></svg><span>Projetos</span></a>
+    <a href="../index.html#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg><span>Sobre</span></a>
+    <a href="../index.html#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>Contato</span></a>
+    <span class="menu-sep"></span>
+    <span class="lang current">PT</span>
+    <a class="lang" href="../../games/divertron.html" hreflang="en" lang="en">EN</a>
+    <button type="button" id="theme-toggle" aria-label="Tema escuro" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 010 18z" fill="currentColor"/></svg></button>
+  </nav>
+
+  <header class="detail-hero band">
+    <div class="inner-narrow">
+      <span class="eyebrow">Playmove</span>
+      <h1>Divertron</h1>
+      <div class="detail-meta">PlayTable · Coleção de jogos de tabuleiro clássicos</div>
+      <p class="sub">Divertron é uma coleção de jogos de tabuleiro clássicos em versões digitais para jogadores a partir de 5 anos, na PlayTable, a mesa interativa da Playmove. Foi criado para levar os jogos tradicionais ao ambiente digital nas escolas. Os jogadores podem enfrentar uns aos outros ou a máquina, em diferentes níveis de dificuldade.</p>
+      <div class="detail-tags">
+        <span class="tag">Game design</span>
+        <span class="tag">Design de IA</span>
+        <span class="tag">Design de dificuldade</span>
+        <span class="tag">Playtesting</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="cover-banner game-media">
+    <div class="inner-narrow">
+      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/AVny62p_RmM" title="Vídeo de jogo do Divertron" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+      <p class="video-link"><a class="btn btn-ghost" href="https://www.youtube.com/watch?v=AVny62p_RmM" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></svg>Assistir no YouTube</a></p>
+    </div>
+  </div>
+
+  <section class="detail-section band" id="overview">
+    <div class="inner-narrow">
+      <h2>Visão geral</h2>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Playmove</dd></div>
+        <div><dt>Plataforma</dt><dd>PlayTable (mesa interativa para até 4 jogadores)</dd></div>
+        <div><dt>Gênero</dt><dd>Coleção de jogos de tabuleiro clássicos</dd></div>
+        <div><dt>Time</dt><dd>Time de 3 pessoas: 1 game designer, 1 artista e 1 programador</dd></div>
+        <div><dt>Ferramentas</dt><dd>Unity, prototipação em papel, Google Sheets, Google Docs</dd></div>
+        <div><dt>Período</dt><dd>2016</dd></div>
+      </dl>
+      <p class="lede">Participei de todas as etapas do Divertron, como a única game designer de um time de três pessoas. A ideia era levar os jogos de tabuleiro clássicos ao ambiente digital nas escolas, escolhendo os que combinavam com a proposta multiplayer da PlayTable. O jogo continua disponível até hoje.</p>
+      <ul class="contrib">
+        <li><span class="kw">Damas</span>Dois jogadores.</li>
+        <li><span class="kw">Reversi</span>Dois jogadores.</li>
+        <li><span class="kw">Jogo da Velha</span>Dois jogadores.</li>
+        <li><span class="kw">Ludo</span>Até quatro jogadores.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="role">
+    <div class="inner-narrow">
+      <h2>Minhas contribuições</h2>
+      <ul class="contrib">
+        <li><span class="kw">Seleção dos jogos</span>Escolhi quais clássicos fariam parte da coleção, priorizando jogos que combinassem com a proposta digital e multiplayer da plataforma e que permitissem uma IA bem desenvolvida.</li>
+        <li><span class="kw">Adaptação</span>Adaptei cada jogo para a PlayTable, respeitando o número de jogadores de cada um: dois para Damas, Reversi e Jogo da Velha, e até quatro para o Ludo.</li>
+        <li><span class="kw">Design de IA</span>Defini as regras lógicas que a máquina usa para jogar, construídas em torno de prioridades e jogadas vantajosas.</li>
+        <li><span class="kw">Design de dificuldade</span>Projetei diferentes níveis de dificuldade para que o jogador enfrente a máquina no nível que mais lhe convém.</li>
+        <li><span class="kw">Playtesting</span>Conduzi playtestes focados nas IAs para garantir que a dificuldade fosse adequada ao público.</li>
+        <li><span class="kw">Ponta a ponta</span>Participei de todas as etapas do desenvolvimento, da seleção dos jogos às versões finalizadas, em parceria com as áreas de arte e programação.</li>
+      </ul>
+    </div>
+  </section>
+  <section class="detail-section band" id="challenges">
+    <div class="inner-narrow">
+      <h2>Desafios e soluções</h2>
+      <div class="case">
+        <h3>Escolher quais clássicos levar para a mesa</h3>
+        <p class="lede">Nem todo jogo de tabuleiro clássico funciona bem em uma mesa interativa. Os critérios foram a afinidade com a proposta digital e multiplayer da plataforma e a possibilidade de construir uma boa IA para o jogo. Isso resultou em uma coleção com jogos para dois jogadores e um, o Ludo, para até quatro.</p>
+      </div>
+      <div class="case">
+        <h3>Um adversário que joga bem e no nível certo</h3>
+        <p class="lede">Para que a máquina fosse uma adversária justa, seu comportamento foi construído com regras lógicas: prioridades e jogadas vantajosas que ela avalia a cada turno. Sobre essa base, o jogo oferece diferentes níveis de dificuldade, para que o mesmo jogo atenda jogadores com experiências diferentes.</p>
+      </div>
+      <div class="case">
+        <h3>Validar a dificuldade para o público</h3>
+        <p class="lede">Com jogadores a partir de 5 anos, uma dificuldade alta demais é tão problemática quanto uma baixa demais. As IAs passaram por várias rodadas de playtestes justamente para verificar se cada nível era adequado ao público, e foram ajustadas até que fosse.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
+    <div class="inner-narrow">
+      <h2>Resultados</h2>
+      <p class="lede">O Divertron foi um sucesso de vendas, tanto no âmbito escolar quanto no de entretenimento. Ele continua disponível na PlayTable até hoje.</p>
+      <p class="lede thesis">Neste jogo, regras conhecidas e um adversário bem ajustado foram o que fez os clássicos funcionarem em uma mesa digital.</p>
+    </div>
+  </section>
+
+
+
+  <nav class="next-project band">
+    <div class="inner-narrow">
+      <div class="label">Próximo projeto</div>
+      <a class="big" href="guardioes-do-mundo.html"><h2>Guardiões do Mundo</h2><span class="arrow">&rarr;</span></a>
+    </div>
+  </nav>
+
+  <footer class="contact band" id="contact">
+    <div class="inner">
+      <h2>Vamos <span class="u">conversar</span>.</h2>
+      <p>Puxe uma cadeira e me conte o que você está construindo.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:karolinafschmitt@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>E-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/karolina-schmitt-a7623390/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.7h.06c.53-1 1.82-2.05 3.75-2.05 4 0 4.75 2.6 4.75 6v5.85h-4v-5.2c0-1.25-.02-2.85-1.75-2.85s-2 1.35-2 2.75v5.3h-4z" fill="currentColor" stroke="none"/></svg>LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script src="../../assets/site.js" defer></script>
+</body>
+</html>

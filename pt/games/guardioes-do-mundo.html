@@ -62,7 +62,14 @@
         <div><dt>Período</dt><dd>2015</dd></div>
       </dl>
       <p class="lede">Meu trabalho no Guardiões do Mundo foi focado no modo desafio. O jogo continua disponível até hoje.</p>
-      <p class="lede">No jogo principal, quatro personagens do folclore brasileiro (Saci, Iara, Curupira e Boitatá) disputam o controle do tabuleiro. Cada casa vale pontos e representa um atributo, como extensão territorial, quantidade de municípios ou altitude máxima, e mais casas são reveladas a cada rodada. Na sua vez, o jogador coloca uma de suas cartas de estado em uma casa, e o próximo jogador pode dominar outra casa ou jogar uma carta sobre a de um adversário para iniciar uma batalha. Um decisor define a regra da batalha: vence a carta maior ou a menor. Com a maior vencendo, São Paulo jogado sobre Roraima em uma casa de municípios ocupa o lugar e elimina Roraima; com a menor vencendo, o resultado é o contrário. Após três turnos, vence quem somar mais pontos com as casas que domina.</p>
+      <p class="lede">Guardiões do Mundo é um jogo de cartas sobre os estados brasileiros. Quatro personagens do folclore brasileiro (Saci, Iara, Curupira e Boitatá) disputam o controle de um tabuleiro jogando cartas de estados. Uma partida funciona assim:</p>
+      <ul class="contrib">
+        <li><span class="kw">O tabuleiro</span>Cada casa vale pontos e representa um atributo: extensão territorial, quantidade de municípios ou altitude máxima. Mais casas são reveladas a cada rodada.</li>
+        <li><span class="kw">Jogar uma carta</span>Na sua vez, o jogador coloca uma de suas cartas de estado em uma casa, e o que vale é o valor do estado naquele atributo.</li>
+        <li><span class="kw">Batalhas</span>Em vez de tomar uma casa livre, o próximo jogador pode jogar uma carta sobre a de um adversário. As duas cartas são comparadas no atributo daquela casa: quem vence fica com a casa e a perdedora é eliminada.</li>
+        <li><span class="kw">O decisor</span>Um decisor define quem vence a batalha: o maior valor ou o menor. Por exemplo, São Paulo é jogado sobre Roraima em uma casa de municípios. Se vence o maior, São Paulo ocupa a casa e Roraima é eliminada. Se vence o menor, Roraima permanece e São Paulo é eliminado.</li>
+        <li><span class="kw">Vitória</span>Ao final de cada rodada, os pontos das casas que cada jogador domina são contados. Depois de três rodadas, vence quem tiver pontuado mais.</li>
+      </ul>
     </div>
   </section>
 
@@ -70,10 +77,11 @@
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
       <ul class="contrib">
-        <li><span class="kw">Design do modo desafio</span>Projetei o modo desafio como uma partida rápida: o jogador tem apenas três cartas na mão e precisa vencer a IA.</li>
-        <li><span class="kw">Level design</span>Projetei os 20 desafios, cada um mais difícil que o anterior.</li>
-        <li><span class="kw">Design de IA</span>Defini como a IA decide o que jogar, por meio de uma combinação de regras que lê o que aconteceu no tabuleiro.</li>
-        <li><span class="kw">Progressão de dificuldade</span>Ajustei as decisões da IA de acordo com a forma como o jogador poderia reagir em cada desafio, para que a progressão se mantivesse justa conforme ficava mais difícil.</li>
+        <li><span class="kw">Conceito do modo desafio</span>Projetei o modo desafio como um formato curto construído sobre as regras do jogo principal: uma partida rápida contra a IA em que o jogador tem apenas três cartas na mão e precisa vencer com elas.</li>
+        <li><span class="kw">Level design</span>Projetei os 20 desafios em ordem progressiva de dificuldade, de modo que cada um exija do jogador um pouco mais que o anterior.</li>
+        <li><span class="kw">Curva de dificuldade</span>Moldei a dificuldade de cada desafio por meio das cartas que o jogador tem e da forma como a IA responde, mantendo a progressão constante do primeiro ao último desafio.</li>
+        <li><span class="kw">Comportamento da IA</span>Defini como a IA decide o que jogar: uma combinação de regras que lê as ações já feitas no tabuleiro e escolhe, a partir delas, a carta e a casa.</li>
+        <li><span class="kw">Antecipar o jogador</span>Ajustei as decisões da IA de acordo com a forma como o jogador poderia reagir em cada desafio, para que o adversário parecesse coerente e a dificuldade justa.</li>
       </ul>
     </div>
   </section>

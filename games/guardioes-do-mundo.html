@@ -62,7 +62,14 @@
         <div><dt>Period</dt><dd>2015</dd></div>
       </dl>
       <p class="lede">My work on Guardiões do Mundo focused on the challenge mode. The game is still available today.</p>
-      <p class="lede">In the main game, four characters from Brazilian folklore (Saci, Iara, Curupira and Boitatá) compete for control of the board. Each square is worth points and represents an attribute, such as territorial extension, number of municipalities or maximum altitude, and more squares are revealed each round. On their turn, a player places one of their state cards on a square, and the next player can claim another square or play a card over a rival's card to start a battle. A decider sets the rule of the battle: either the greater or the lesser card wins. With the greater winning, São Paulo played over Roraima on a municipality square takes the place and eliminates Roraima; with the lesser winning, the result is the opposite. After three turns, the player with the most points from the squares they control wins.</p>
+      <p class="lede">Guardiões do Mundo is a card game about Brazilian states. Four characters from Brazilian folklore (Saci, Iara, Curupira and Boitatá) compete to control a board by playing state cards. A match works like this:</p>
+      <ul class="contrib">
+        <li><span class="kw">The board</span>Each square is worth points and stands for one attribute: territorial extension, number of municipalities or maximum altitude. More squares are revealed every round.</li>
+        <li><span class="kw">Playing a card</span>On their turn, a player places one of their state cards on a square, and the state's value for that attribute is what counts.</li>
+        <li><span class="kw">Battles</span>Instead of taking a free square, the next player can play a card over a rival's card. The two cards are compared on that square's attribute: the winner keeps the square and the loser is eliminated.</li>
+        <li><span class="kw">The decider</span>A decider defines who wins a battle: the greater value or the lesser one. Say São Paulo is played over Roraima on a municipality square. If the greater wins, São Paulo takes the square and Roraima is eliminated. If the lesser wins, Roraima stays and São Paulo is eliminated.</li>
+        <li><span class="kw">Winning</span>At the end of each round, the points of the squares each player controls are counted. After three rounds, whoever has scored the most wins.</li>
+      </ul>
     </div>
   </section>
 
@@ -70,10 +77,11 @@
     <div class="inner-narrow">
       <h2>My contributions</h2>
       <ul class="contrib">
-        <li><span class="kw">Challenge mode design</span>I designed the challenge mode as a quick match: the player has only three cards in hand and needs to beat the AI.</li>
-        <li><span class="kw">Level design</span>I designed the 20 challenges, each one harder than the last.</li>
-        <li><span class="kw">AI design</span>I defined how the AI decides what to play, using a combination of rules that reads what has happened on the board.</li>
-        <li><span class="kw">Difficulty progression</span>I adjusted the AI's decisions to how the player could react in each challenge, so the progression stayed fair as it got harder.</li>
+        <li><span class="kw">Challenge mode concept</span>I designed the challenge mode as a short format built on the rules of the main game: a quick match against the AI in which the player has only three cards in hand and needs to win with them.</li>
+        <li><span class="kw">Level design</span>I designed the 20 challenges in progressive order of difficulty, so each one asks the player for a little more than the one before.</li>
+        <li><span class="kw">Difficulty curve</span>I shaped the difficulty of each challenge through the cards the player holds and the way the AI responds, keeping the progression steady from the first challenge to the last.</li>
+        <li><span class="kw">AI behavior</span>I defined how the AI decides what to play: a combination of rules that reads the actions already made on the board and chooses the card and the square from them.</li>
+        <li><span class="kw">Anticipating the player</span>I adjusted the AI's decisions to how the player could react in each challenge, so the opponent felt coherent and the difficulty felt fair.</li>
       </ul>
     </div>
   </section>

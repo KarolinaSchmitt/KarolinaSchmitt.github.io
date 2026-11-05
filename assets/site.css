@@ -443,3 +443,4 @@ section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }
 /* About section on the home page */
 .about-head { padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
 .about-head .about-lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }
+.about-head .about-lede + .about-lede { margin-top: 0.9rem; }

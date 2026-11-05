@@ -31,12 +31,15 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Playmove · 2015-2019</span>
+      <span class="eyebrow">Playmove</span>
       <h1>Lab Boom</h1>
-      <div class="detail-meta">PlayTable e PC · Jogo estilo damas</div>
+      <div class="detail-meta">PlayTable · Jogo de tabuleiro inspirado em damas</div>
+      <p class="sub">Lab Boom é um jogo de tabuleiro inspirado em damas para jogadores a partir de 7 anos, na PlayTable, a mesa interativa da Playmove. Até quatro gatos ajudantes de uma bruxa posicionam poções mágicas no tabuleiro, e quem ficar com duas poções da sua cor em casas adjacentes é eliminado. A mesma regra sustenta cinco modos de jogo, cada um exercitando uma habilidade diferente: raciocínio, memória, adaptação à sorte e trabalho em equipe.</p>
       <div class="detail-tags">
-        <span class="tag">Economia e balanceamento</span>
-        <span class="tag">Design de conteúdo</span>
+        <span class="tag">Game design</span>
+        <span class="tag">Balanceamento</span>
+        <span class="tag">Design de IA</span>
+        <span class="tag">Onboarding e feedback</span>
         <span class="tag">Playtesting</span>
       </div>
     </div>
@@ -51,30 +54,69 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Visão geral</h2>
-      <p class="lede">Jogo de damas para quatro jogadores, com quatro modos.</p>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Adicione aqui uma visão geral curta do jogo: conceito, público e como se joga.</p></div>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Playmove</dd></div>
+        <div><dt>Plataforma</dt><dd>PlayTable (mesa interativa para até 4 jogadores)</dd></div>
+        <div><dt>Gênero</dt><dd>Jogo de tabuleiro inspirado em damas</dd></div>
+        <div><dt>Time</dt><dd>Time de 3 pessoas: 1 game designer, 1 artista e 1 programador</dd></div>
+        <div><dt>Ferramentas</dt><dd>Unity, prototipação em papel, Google Sheets, Google Docs</dd></div>
+        <div><dt>Período</dt><dd>2018</dd></div>
+      </dl>
+      <p class="lede">Entrei no Lab Boom na fase de produção, assumindo o lugar do game designer que criou o conceito. Meu papel foi conduzir a ideia original até um jogo finalizado. O jogo continua disponível até hoje.</p>
+      <p class="lede">A regra base é simples: a cada turno, o jogador posiciona uma poção no tabuleiro, e quem ficar com duas poções da sua cor em casas adjacentes é eliminado. Vence o último que sobrar. Os cinco modos variam essa regra:</p>
+      <ul class="contrib">
+        <li><span class="kw">Normal</span>A regra base, que exercita o raciocínio.</li>
+        <li><span class="kw">Blackout</span>Depois de posicionada, a cor da poção deixa de ficar evidente, então a memória entra em jogo além do raciocínio.</li>
+        <li><span class="kw">Dado do Caos</span>Cada jogador rola um dado na sua vez, e o número sorteado é a quantidade de poções que ele posiciona, o que acrescenta uma pitada de sorte.</li>
+        <li><span class="kw">Passa a Passa</span>Na sua vez, o jogador escolhe entre posicionar uma poção ou arriscar uma carta, que pode fazê-lo pular a vez ou obrigá-lo a posicionar mais poções do que o esperado.</li>
+        <li><span class="kw">Todos por Todos</span>Um modo cooperativo: os jogadores trabalham em equipe para que ninguém seja eliminado ao longo de cinco rodadas, e cada gato rola o dado para saber quantas poções deve posicionar.</li>
+      </ul>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui a sua contribuição neste jogo e o que ficou sob sua responsabilidade.</p></div>
+      <ul class="contrib">
+        <li><span class="kw">Assumir um conceito</span>Assumi o projeto na produção e garanti que a ideia original fosse implementada corretamente e mantivesse sua intenção ao longo do desenvolvimento.</li>
+        <li><span class="kw">Comportamento da IA</span>Defini como a máquina joga como adversária.</li>
+        <li><span class="kw">Tutoriais e feedbacks</span>Defini os tutoriais e os feedbacks que ensinam as regras e comunicam o que acontece no tabuleiro.</li>
+        <li><span class="kw">Balanceamento</span>Balanceei a dificuldade por meio dos dados, do tamanho do tabuleiro e das cartas.</li>
+        <li><span class="kw">Playtesting</span>Garanti que os playtestes acontecessem e que as modificações apontadas por eles fossem aplicadas.</li>
+      </ul>
     </div>
   </section>
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o principal desafio deste jogo e a solução que você criou.</p></div>
+      <div class="case">
+        <h3>Uma mecânica central, cinco modos</h3>
+        <p class="lede">O principal desafio do jogo foi extrair vários modos de uma única mecânica. A solução foi manter a regra base fixa e variar um elemento por vez: a informação, com as cores escondidas no Blackout; o acaso, com o dado no Dado do Caos; o risco e a escolha, com as cartas no Passa a Passa; e o próprio objetivo, com a cooperação no Todos por Todos. O jogador aprende uma regra e encontra, em cada modo, uma habilidade diferente a exercitar, do raciocínio à memória e ao trabalho em equipe.</p>
+      </div>
+      <div class="case">
+        <h3>Balancear a dificuldade sem uma economia</h3>
+        <p class="lede">Neste jogo o balanceamento não envolve economia: as alavancas são os dados, o tamanho do tabuleiro e as cartas. Elas controlam a rapidez com que o tabuleiro se enche e a chance de alguém ser eliminado, então cada modo precisou da sua própria calibração. No modo cooperativo, em que o objetivo é sobreviver a cinco rodadas, essas mesmas alavancas definem diretamente a dificuldade de vencer.</p>
+      </div>
+      <div class="case">
+        <h3>Dar continuidade ao conceito de outra pessoa</h3>
+        <p class="lede">Entrar em um projeto com o conceito já definido exigia respeitar a ideia original e, ao mesmo tempo, garantir que ela funcionasse na prática. Os playtestes fizeram esse papel: mostraram o que precisava mudar, e as modificações foram aplicadas sobre o conceito existente.</p>
+      </div>
+      <div class="case">
+        <h3>Ensinar cinco variações de um mesmo jogo</h3>
+        <p class="lede">Com modos que compartilham a regra base e diferem em um único detalhe, os tutoriais e os feedbacks precisavam deixar claro o que muda em cada um, e a máquina precisava saber jogar todos os modos. Ambos foram projetados para que a regra aprendida em um modo valesse no seguinte.</p>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Resultados</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o que esse trabalho alcançou: métricas, retenção, receita ou feedback dos jogadores que você possa compartilhar.</p></div>
+      <p class="lede">O Lab Boom foi um jogo de sucesso, principalmente no segmento de entretenimento. Ele continua disponível na PlayTable até hoje.</p>
+      <p class="lede thesis">Neste jogo, uma regra virou cinco formas de jogar.</p>
     </div>
   </section>
+
+
 
   <nav class="next-project band">
     <div class="inner-narrow">

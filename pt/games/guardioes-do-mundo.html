@@ -31,13 +31,15 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Playmove · 2015-2019</span>
+      <span class="eyebrow">Playmove</span>
       <h1>Guardiões do Mundo</h1>
-      <div class="detail-meta">PlayTable e PC · Modo desafio</div>
+      <div class="detail-meta">PlayTable · Jogo de cartas · Modo desafio</div>
+      <p class="sub">Guardiões do Mundo é um jogo de cartas digital para jogadores a partir de 9 anos, na PlayTable, a mesa interativa da Playmove. Personagens do folclore brasileiro disputam o controle de um tabuleiro jogando cartas de estados brasileiros em casas que representam atributos como extensão territorial, quantidade de municípios e altitude máxima. Projetei o modo desafio: 20 partidas rápidas contra a IA, cada vez mais difíceis.</p>
       <div class="detail-tags">
-        <span class="tag">Economia e balanceamento</span>
-        <span class="tag">Design de conteúdo</span>
-        <span class="tag">Playtesting</span>
+        <span class="tag">Level design</span>
+        <span class="tag">Design de desafios</span>
+        <span class="tag">Design de IA</span>
+        <span class="tag">Progressão de dificuldade</span>
       </div>
     </div>
   </header>
@@ -51,30 +53,57 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Visão geral</h2>
-      <p class="lede">Level design do modo desafio, 20 fases.</p>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Adicione aqui uma visão geral curta do jogo: conceito, público e como se joga.</p></div>
+      <dl class="facts">
+        <div><dt>Estúdio</dt><dd>Playmove</dd></div>
+        <div><dt>Plataforma</dt><dd>PlayTable (mesa interativa para até 4 jogadores)</dd></div>
+        <div><dt>Gênero</dt><dd>Jogo de cartas digital educativo</dd></div>
+        <div><dt>Time</dt><dd>Time de 3 pessoas: 1 game designer, 1 artista e 1 programador</dd></div>
+        <div><dt>Ferramentas</dt><dd>Unity, prototipação em papel, Google Sheets, Google Docs</dd></div>
+        <div><dt>Período</dt><dd>2015</dd></div>
+      </dl>
+      <p class="lede">Meu trabalho no Guardiões do Mundo foi focado no modo desafio. O jogo continua disponível até hoje.</p>
+      <p class="lede">No jogo principal, quatro personagens do folclore brasileiro (Saci, Iara, Curupira e Boitatá) disputam o controle do tabuleiro. Cada casa vale pontos e representa um atributo, como extensão territorial, quantidade de municípios ou altitude máxima, e mais casas são reveladas a cada rodada. Na sua vez, o jogador coloca uma de suas cartas de estado em uma casa, e o próximo jogador pode dominar outra casa ou jogar uma carta sobre a de um adversário para iniciar uma batalha. Um decisor define a regra da batalha: vence a carta maior ou a menor. Com a maior vencendo, São Paulo jogado sobre Roraima em uma casa de municípios ocupa o lugar e elimina Roraima; com a menor vencendo, o resultado é o contrário. Após três turnos, vence quem somar mais pontos com as casas que domina.</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>Minhas contribuições</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui a sua contribuição neste jogo e o que ficou sob sua responsabilidade.</p></div>
+      <ul class="contrib">
+        <li><span class="kw">Design do modo desafio</span>Projetei o modo desafio como uma partida rápida: o jogador tem apenas três cartas na mão e precisa vencer a IA.</li>
+        <li><span class="kw">Level design</span>Projetei os 20 desafios, cada um mais difícil que o anterior.</li>
+        <li><span class="kw">Design de IA</span>Defini como a IA decide o que jogar, por meio de uma combinação de regras que lê o que aconteceu no tabuleiro.</li>
+        <li><span class="kw">Progressão de dificuldade</span>Ajustei as decisões da IA de acordo com a forma como o jogador poderia reagir em cada desafio, para que a progressão se mantivesse justa conforme ficava mais difícil.</li>
+      </ul>
     </div>
   </section>
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Desafios e soluções</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o principal desafio deste jogo e a solução que você criou.</p></div>
+      <div class="case">
+        <h3>Vinte desafios progressivamente mais difíceis</h3>
+        <p class="lede">A decisão de design mais difícil do modo foi construir 20 desafios com uma curva de dificuldade constante. Com apenas três cartas na mão, cada partida virava um problema curto a resolver, então a dificuldade podia ser moldada pelas cartas que o jogador tem e pela resposta da IA, e não pela duração da partida.</p>
+      </div>
+      <div class="case">
+        <h3>Uma IA que reage ao tabuleiro</h3>
+        <p class="lede">Para que cada desafio parecesse um adversário de verdade, a IA não podia seguir um roteiro fixo. Suas escolhas dependem do que foi jogado no tabuleiro, por meio de uma combinação de regras que decide qual carta usar e onde. As regras foram ajustadas à forma como o jogador poderia reagir, para que cada desafio exigisse uma decisão diferente.</p>
+      </div>
+      <div class="case">
+        <h3>Transformar uma partida completa em uma partida rápida</h3>
+        <p class="lede">O jogo principal é uma partida de vários turnos, e o modo desafio precisava de uma versão mais curta, com objetivo próprio. Limitar a mão a três cartas condensou as decisões de uma partida inteira em poucas jogadas, mantendo as regras que o jogador já conhece.</p>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Resultados</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Texto provisório</span><p>Descreva aqui o que esse trabalho alcançou: métricas, retenção, receita ou feedback dos jogadores que você possa compartilhar.</p></div>
+      <p class="lede">O jogo teve uma ótima aceitação nas escolas, por tratar de um assunto da grade curricular que a plataforma ainda não cobria e também pela versatilidade dos seus modos de jogo. Ele continua disponível na PlayTable até hoje.</p>
+      <p class="lede thesis">Neste modo, cada desafio foi projetado para ser mais difícil que o anterior e para ser respondido por um adversário que lê o tabuleiro.</p>
     </div>
   </section>
+
+
 
   <nav class="next-project band">
     <div class="inner-narrow">

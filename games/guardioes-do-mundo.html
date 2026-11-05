@@ -31,13 +31,15 @@
 
   <header class="detail-hero band">
     <div class="inner-narrow">
-      <span class="eyebrow">Playmove · 2015-2019</span>
+      <span class="eyebrow">Playmove</span>
       <h1>Guardiões do Mundo</h1>
-      <div class="detail-meta">PlayTable &amp; PC · Challenge mode</div>
+      <div class="detail-meta">PlayTable · Card game · Challenge mode</div>
+      <p class="sub">Guardiões do Mundo is a digital card game for ages 9 and up, on the PlayTable, Playmove's interactive table. Characters from Brazilian folklore compete for control of a board by playing Brazilian state cards on squares that represent attributes such as territorial extension, number of municipalities and maximum altitude. I designed its challenge mode: 20 progressively harder quick matches against the AI.</p>
       <div class="detail-tags">
-        <span class="tag">Economy &amp; balancing</span>
-        <span class="tag">Content design</span>
-        <span class="tag">Playtesting</span>
+        <span class="tag">Level design</span>
+        <span class="tag">Challenge design</span>
+        <span class="tag">AI design</span>
+        <span class="tag">Difficulty progression</span>
       </div>
     </div>
   </header>
@@ -51,30 +53,57 @@
   <section class="detail-section band" id="overview">
     <div class="inner-narrow">
       <h2>Overview</h2>
-      <p class="lede">Challenge-mode level design, 20 levels.</p>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Add here a short overview of the game: concept, audience and how it plays.</p></div>
+      <dl class="facts">
+        <div><dt>Studio</dt><dd>Playmove</dd></div>
+        <div><dt>Platform</dt><dd>PlayTable (interactive table for up to 4 players)</dd></div>
+        <div><dt>Genre</dt><dd>Digital educational card game</dd></div>
+        <div><dt>Team</dt><dd>Team of 3: 1 game designer, 1 artist and 1 programmer</dd></div>
+        <div><dt>Tools</dt><dd>Unity, paper prototyping, Google Sheets, Google Docs</dd></div>
+        <div><dt>Period</dt><dd>2015</dd></div>
+      </dl>
+      <p class="lede">My work on Guardiões do Mundo focused on the challenge mode. The game is still available today.</p>
+      <p class="lede">In the main game, four characters from Brazilian folklore (Saci, Iara, Curupira and Boitatá) compete for control of the board. Each square is worth points and represents an attribute, such as territorial extension, number of municipalities or maximum altitude, and more squares are revealed each round. On their turn, a player places one of their state cards on a square, and the next player can claim another square or play a card over a rival's card to start a battle. A decider sets the rule of the battle: either the greater or the lesser card wins. With the greater winning, São Paulo played over Roraima on a municipality square takes the place and eliminates Roraima; with the lesser winning, the result is the opposite. After three turns, the player with the most points from the squares they control wins.</p>
     </div>
   </section>
 
   <section class="detail-section band" id="role">
     <div class="inner-narrow">
       <h2>My contributions</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Describe here your contribution to this game and what you were responsible for.</p></div>
+      <ul class="contrib">
+        <li><span class="kw">Challenge mode design</span>I designed the challenge mode as a quick match: the player has only three cards in hand and needs to beat the AI.</li>
+        <li><span class="kw">Level design</span>I designed the 20 challenges, each one harder than the last.</li>
+        <li><span class="kw">AI design</span>I defined how the AI decides what to play, using a combination of rules that reads what has happened on the board.</li>
+        <li><span class="kw">Difficulty progression</span>I adjusted the AI's decisions to how the player could react in each challenge, so the progression stayed fair as it got harder.</li>
+      </ul>
     </div>
   </section>
   <section class="detail-section band" id="challenges">
     <div class="inner-narrow">
       <h2>Challenges &amp; solutions</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Describe here the main challenge on this game and the solution you designed.</p></div>
+      <div class="case">
+        <h3>Twenty challenges that get progressively harder</h3>
+        <p class="lede">The hardest design decision of the mode was building 20 challenges with a steady difficulty curve. With only three cards in hand, every match became a short problem to solve, so difficulty could be shaped by the cards the player has and by how the AI responds, instead of by the length of the match.</p>
+      </div>
+      <div class="case">
+        <h3>An AI that reacts to the board</h3>
+        <p class="lede">For each challenge to feel like a real opponent, the AI could not follow a fixed script. Its choices depend on what has been played on the board, through a combination of rules that decides which card to use and where. The rules were adjusted to how a player could react, so that each challenge asked for a different decision.</p>
+      </div>
+      <div class="case">
+        <h3>Turning a full match into a quick one</h3>
+        <p class="lede">The main game is a match of several turns, and the challenge mode needed a shorter version with its own goal. Limiting the hand to three cards compressed the decisions of a whole match into a few plays, while keeping the rules the player already knows.</p>
+      </div>
     </div>
   </section>
 
   <section class="detail-section band" id="results" style="padding-bottom: 3rem;">
     <div class="inner-narrow">
       <h2>Results</h2>
-      <div class="placeholder" data-placeholder><span class="ph-badge">Provisional text</span><p>Describe here what this work achieved: metrics, retention, revenue or player feedback you can share.</p></div>
+      <p class="lede">The game was very well received in schools, since it covers a subject of the school curriculum that the platform did not yet address, and also for the versatility of its game modes. It remains available on the PlayTable today.</p>
+      <p class="lede thesis">In this mode, every challenge was designed to be harder than the last, and to be answered by an opponent that reads the board.</p>
     </div>
   </section>
+
+
 
   <nav class="next-project band">
     <div class="inner-narrow">

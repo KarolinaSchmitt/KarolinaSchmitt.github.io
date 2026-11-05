@@ -439,3 +439,7 @@ section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }
   .btn, .card, .gallery img { transition: none; }
   .btn:hover, .gallery a:hover img { transform: none; }
 }
+
+/* About section on the home page */
+.about-head { padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.about-head .about-lede { font-size: 1.08rem; color: var(--ink-soft); max-width: 62ch; }

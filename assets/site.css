@@ -449,3 +449,12 @@ section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }
 .cover-banner.game-media .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 20px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: #000; }
 .cover-banner.game-media .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .cover-banner.game-media .video-link { margin-top: 0.9rem; text-align: right; }
+
+/* screenshots gallery on game pages */
+.shots { margin-top: 1.2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.1rem; }
+.shots figure { margin: 0; }
+.shots a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); box-shadow: var(--shadow); }
+.shots img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; transition: transform .2s ease; }
+.shots a:hover img { transform: scale(1.03); }
+.shots figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--ink-soft); }
+@media (prefers-reduced-motion: reduce) { .shots a:hover img { transform: none; } }

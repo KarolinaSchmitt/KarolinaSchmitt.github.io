@@ -451,7 +451,7 @@ section[id], header[id], footer[id] { scroll-margin-top: 5.5rem; }
 .cover-banner.game-media .video-link { margin-top: 0.9rem; text-align: right; }
 
 /* screenshot gallery under each project's cover/video */
-.gallery-section { padding-top: 0; }
+.cover-banner + .gallery-section { padding-top: 0; }
 .gallery-section h2 { margin-bottom: 1rem; }
 .shots { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 1rem; }
 .shots figure { margin: 0; }

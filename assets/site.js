@@ -60,3 +60,128 @@
     initTheme();
   });
 })();
+
+
+/* Image gallery lightbox: opens the clicked image large on the same page, with the caption,
+   a back arrow, previous/next arrows, and keyboard (Esc, left/right) and swipe support. */
+(function () {
+  var pt = (document.documentElement.lang || 'en').slice(0, 2) === 'pt';
+  var T = pt
+    ? { back: 'Voltar', prev: 'Imagem anterior', next: 'Próxima imagem', dialog: 'Visualizador de imagens', of: ' de ' }
+    : { back: 'Back', prev: 'Previous image', next: 'Next image', dialog: 'Image viewer', of: ' of ' };
+  var ARROW_L = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';
+  var ARROW_R = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>';
+  var ARROW_BACK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg>';
+
+  var box, imgEl, capEl, countEl, backBtn, prevBtn, nextBtn;
+  var items = [], index = 0, opener = null, touchX = null;
+
+  function build() {
+    box = document.createElement('div');
+    box.className = 'lb';
+    box.hidden = true;
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', T.dialog);
+    box.innerHTML =
+      '<button type="button" class="lb-back">' + ARROW_BACK + '<span>' + T.back + '</span></button>' +
+      '<span class="lb-count" aria-live="polite"></span>' +
+      '<button type="button" class="lb-nav lb-prev" aria-label="' + T.prev + '">' + ARROW_L + '</button>' +
+      '<figure class="lb-fig"><img alt=""><figcaption></figcaption></figure>' +
+      '<button type="button" class="lb-nav lb-next" aria-label="' + T.next + '">' + ARROW_R + '</button>';
+    document.body.appendChild(box);
+    imgEl = box.querySelector('img');
+    capEl = box.querySelector('figcaption');
+    countEl = box.querySelector('.lb-count');
+    backBtn = box.querySelector('.lb-back');
+    prevBtn = box.querySelector('.lb-prev');
+    nextBtn = box.querySelector('.lb-next');
+    backBtn.addEventListener('click', close);
+    prevBtn.addEventListener('click', function () { go(-1); });
+    nextBtn.addEventListener('click', function () { go(1); });
+    box.addEventListener('click', function (e) {
+      if (e.target === box) close();
+    });
+    box.addEventListener('touchstart', function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (touchX === null) return;
+      var dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1);
+    });
+  }
+
+  function show() {
+    var it = items[index];
+    imgEl.src = it.src;
+    imgEl.alt = it.alt;
+    capEl.textContent = it.caption;
+    capEl.hidden = !it.caption;
+    countEl.textContent = items.length > 1 ? (index + 1) + T.of + items.length : '';
+    box.classList.toggle('single', items.length < 2);
+    // warm the neighbours so the arrows feel instant
+    [index - 1, index + 1].forEach(function (i) {
+      if (items[(i + items.length) % items.length]) new Image().src = items[(i + items.length) % items.length].src;
+    });
+  }
+
+  function go(step) {
+    if (items.length < 2) return;
+    index = (index + step + items.length) % items.length;
+    show();
+  }
+
+  function open(group, start, trigger) {
+    if (!box) build();
+    items = group;
+    index = start;
+    opener = trigger;
+    show();
+    box.hidden = false;
+    document.body.classList.add('lb-open');
+    backBtn.focus();
+    document.addEventListener('keydown', onKey);
+  }
+
+  function close() {
+    box.hidden = true;
+    document.body.classList.remove('lb-open');
+    document.removeEventListener('keydown', onKey);
+    if (opener && opener.focus) opener.focus();
+  }
+
+  function onKey(e) {
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    else if (e.key === 'Tab') {
+      var f = Array.prototype.filter.call(box.querySelectorAll('button'), function (b) { return b.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+
+  function init() {
+    var galleries = document.querySelectorAll('.shots');
+    Array.prototype.forEach.call(galleries, function (gallery) {
+      var links = Array.prototype.slice.call(gallery.querySelectorAll('a[data-lightbox]'));
+      var group = links.map(function (a) {
+        var fig = a.closest('figure');
+        var cap = fig && fig.querySelector('figcaption');
+        var im = a.querySelector('img');
+        return { src: a.getAttribute('href'), alt: (im && im.alt) || '', caption: cap ? cap.textContent.trim() : '' };
+      });
+      links.forEach(function (a, i) {
+        a.addEventListener('click', function (e) {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // keep "open in new tab" working
+          e.preventDefault();
+          open(group, i, a);
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();

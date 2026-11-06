@@ -115,8 +115,19 @@
     var it = items[index];
     imgEl.src = it.src;
     imgEl.alt = it.alt;
-    capEl.textContent = it.caption;
-    capEl.hidden = !it.caption;
+    capEl.textContent = '';
+    if (it.caption) {
+      var title = document.createElement(it.desc ? 'strong' : 'span');
+      title.textContent = it.caption;
+      capEl.appendChild(title);
+    }
+    if (it.desc) {
+      var desc = document.createElement('span');
+      desc.className = 'lb-desc';
+      desc.textContent = it.desc;
+      capEl.appendChild(desc);
+    }
+    capEl.hidden = !it.caption && !it.desc;
     countEl.textContent = items.length > 1 ? (index + 1) + T.of + items.length : '';
     box.classList.toggle('single', items.length < 2);
     // warm the neighbours so the arrows feel instant
@@ -171,7 +182,7 @@
         var fig = a.closest('figure');
         var cap = fig && fig.querySelector('figcaption');
         var im = a.querySelector('img');
-        return { src: a.getAttribute('href'), alt: (im && im.alt) || '', caption: cap ? cap.textContent.trim() : '' };
+        return { src: a.getAttribute('href'), alt: (im && im.alt) || '', caption: cap ? cap.textContent.trim() : '', desc: a.getAttribute('data-desc') || '' };
       });
       links.forEach(function (a, i) {
         a.addEventListener('click', function (e) {

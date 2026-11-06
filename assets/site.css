@@ -486,3 +486,13 @@ body.lb-open { overflow: hidden; }
   .lb-fig figcaption { font-size: 0.95rem; padding-bottom: 3.4rem; }
 }
 @media (prefers-reduced-motion: reduce) { .lb { animation: none; } .shots img { transition: none; } .shots a:hover img { transform: none; } }
+
+/* gallery groups (themed blocks of screenshots) and the lightbox description */
+.gallery-group { margin-top: 2.6rem; }
+.gallery-group:first-of-type { margin-top: 1.6rem; }
+.gallery-group h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+.gallery-group > p { max-width: 68ch; color: var(--ink-soft); margin-bottom: 0.8rem; }
+.gallery-group .shots { margin-top: 1.1rem; }
+.lb-fig figcaption { max-height: 9rem; overflow-y: auto; }
+.lb-fig figcaption strong { display: block; font-size: 1.05rem; color: #fff; margin-bottom: 0.25rem; }
+.lb-fig figcaption .lb-desc { display: block; }

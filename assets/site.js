@@ -121,9 +121,18 @@
     imgEl.onload = fit;
     if (imgEl.complete && imgEl.naturalWidth) fit();
     capEl.textContent = '';
-    // only the short title is shown with the enlarged image (the longer text lives on the page itself)
-    if (it.caption) capEl.textContent = it.caption;
-    capEl.hidden = !it.caption;
+    if (it.caption) {
+      var title = document.createElement(it.desc ? 'strong' : 'span');
+      title.textContent = it.caption;
+      capEl.appendChild(title);
+    }
+    if (it.desc) {
+      var desc = document.createElement('span');
+      desc.className = 'lb-desc';
+      desc.textContent = it.desc;
+      capEl.appendChild(desc);
+    }
+    capEl.hidden = !it.caption && !it.desc;
     countEl.textContent = items.length > 1 ? (index + 1) + T.of + items.length : '';
     box.classList.toggle('single', items.length < 2);
     // warm the neighbours so the arrows feel instant

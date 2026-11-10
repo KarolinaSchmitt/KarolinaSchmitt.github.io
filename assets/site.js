@@ -86,9 +86,11 @@
     box.innerHTML =
       '<button type="button" class="lb-back">' + ARROW_BACK + '<span>' + T.back + '</span></button>' +
       '<span class="lb-count" aria-live="polite"></span>' +
+      '<div class="lb-stage">' +
       '<button type="button" class="lb-nav lb-prev" aria-label="' + T.prev + '">' + ARROW_L + '</button>' +
       '<figure class="lb-fig"><img alt=""><figcaption></figcaption></figure>' +
-      '<button type="button" class="lb-nav lb-next" aria-label="' + T.next + '">' + ARROW_R + '</button>';
+      '<button type="button" class="lb-nav lb-next" aria-label="' + T.next + '">' + ARROW_R + '</button>' +
+      '</div>';
     document.body.appendChild(box);
     imgEl = box.querySelector('img');
     capEl = box.querySelector('figcaption');
@@ -115,7 +117,7 @@
     var it = items[index];
     imgEl.src = it.src;
     imgEl.alt = it.alt;
-    var fit = function () { box.classList.toggle('portrait', imgEl.naturalHeight > imgEl.naturalWidth); };
+    var fit = function () { box.classList.toggle('lb-tall', imgEl.naturalHeight > imgEl.naturalWidth); };
     imgEl.onload = fit;
     if (imgEl.complete && imgEl.naturalWidth) fit();
     capEl.textContent = '';

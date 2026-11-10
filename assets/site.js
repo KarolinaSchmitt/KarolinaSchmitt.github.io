@@ -115,6 +115,9 @@
     var it = items[index];
     imgEl.src = it.src;
     imgEl.alt = it.alt;
+    var fit = function () { box.classList.toggle('portrait', imgEl.naturalHeight > imgEl.naturalWidth); };
+    imgEl.onload = fit;
+    if (imgEl.complete && imgEl.naturalWidth) fit();
     capEl.textContent = '';
     if (it.caption) {
       var title = document.createElement(it.desc ? 'strong' : 'span');

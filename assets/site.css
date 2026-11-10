@@ -496,3 +496,13 @@ body.lb-open { overflow: hidden; }
 .lb-fig figcaption { max-height: 9rem; overflow-y: auto; }
 .lb-fig figcaption strong { display: block; font-size: 1.05rem; color: #fff; margin-bottom: 0.25rem; }
 .lb-fig figcaption .lb-desc { display: block; }
+
+/* portrait (phone) screenshots */
+.shots-portrait { grid-template-columns: repeat(auto-fill, minmax(min(100%, 132px), 1fr)); gap: 0.9rem; }
+.shots-portrait img { aspect-ratio: 9 / 18; object-position: top center; }
+.shots-portrait figcaption { font-size: 0.8rem; }
+@media (min-width: 900px) {
+  .lb.portrait .lb-fig { flex-direction: row; align-items: center; justify-content: center; gap: 2.2rem; max-width: min(94vw, 1100px); }
+  .lb.portrait .lb-fig img { max-height: calc(100vh - 7rem); max-width: 44vw; }
+  .lb.portrait .lb-fig figcaption { max-width: 34ch; text-align: left; max-height: calc(100vh - 8rem); }
+}
